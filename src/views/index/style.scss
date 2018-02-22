@@ -1,0 +1,136 @@
+@import "../../assets/scss/_variable.scss";
+.index-section {
+    width: $width;
+    margin: 20px auto;
+
+    .index-container {
+        background: #fff;
+        box-shadow: 0 0 8px #ccc;
+    }
+
+    .topics-container {
+        float: left;
+        width: calc(100% - #{$sidebarWidth + 20});
+
+        .nav {
+            padding: 10px 0;
+            background: $boxTopColor;
+            border-radius: 5px 5px 0 0;
+
+            a {
+                padding: 2px 5px;
+                margin-left: 15px;
+                color: #80bd01;
+
+                &:hover {
+                    color: #333;
+                }
+
+                &.active {
+                    background: #80bd01;
+                    color: #fff;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+    
+    .topics-list {
+        position: relative;
+        border-radius: 0 0 5px 5px;
+        overflow: hidden;
+        min-height: 1000px;
+        
+        .mark-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+
+            .mark-line {
+                margin: 15px 0 0 15px;
+                background: #f7f7f7;
+                height: 35px;
+                width: 40%;
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    width: 30%;
+                } 
+            }
+        }
+
+        li {
+            overflow: hidden;
+            padding: 10px;
+
+            &:hover {
+                background: #eee;
+            }
+        }
+
+        .avatar {
+            float: left;
+
+            img {
+                width: 35px;
+                height: 35px;
+                object-fit: cover;
+                border-radius: 2px;
+            }
+        }
+
+        .reply-view {
+            float: left;
+            width: 70px;
+            text-align: center;
+            font-size: 12px;
+            margin: 6px 0 0 20px;
+        }
+
+        .tag {
+            float: left;
+            margin-top: 3px;
+            font-size: 12px;
+            color: #999;
+            background: #e5e5e5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 500;
+
+            &.good,
+            &.top {
+                background: #80bd01;
+                color: #fff;
+            }
+        }
+
+        .title {
+            float: left;
+            display: inline-block;
+            width: calc(100% - 230px);
+            margin: 1px 0 0 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 16px;
+
+            &:hover {
+                text-decoration: underline;
+                color: #333;
+            }
+        }
+
+        .last-reply-time {
+            float: right;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+    }
+
+    .pagination-box {
+        margin: 15px 0 20px 10px;
+    }
+}

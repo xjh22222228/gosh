@@ -1,0 +1,32 @@
+@import "../../assets/scss/_variable.scss";
+.header {
+    z-index: 6;
+    position: relative;
+    padding: 10px 10px 15px 0;
+    background: #444;
+
+    .header-box {
+        width: $width;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .logo {
+        float: left;
+
+        img {
+            width: 125px;
+            pointer-events: none;
+        }
+    }
+
+    .nav {
+        margin-top: 8px;
+        float: right;
+
+        a {
+            color: #fff;
+            margin-left: 20px;
+        }
+    }
+}

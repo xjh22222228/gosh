@@ -1,0 +1,37 @@
+@import "variable.scss";
+@media screen and(max-width: $width) {
+    .index-section {
+        width: 100%;
+
+        .topics-container {
+            margin-left: 10px;
+            width: calc(100% - #{$sidebarWidth + 40});
+        }
+    }
+
+    .sidebar {
+        margin-right: 10px;
+    }
+
+    .header .header-box,
+    .footer .footer-box {
+        width: 100%;
+        padding: 0 10px;
+    }
+}
+
+
+@media screen and(max-width: 992px) {
+
+    .topics-container {
+        width: calc(100% - 20px) !important;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .reply .reply-content {
+        padding-left: 0 !important;
+    }
+}

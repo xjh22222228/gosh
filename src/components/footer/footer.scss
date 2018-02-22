@@ -1,0 +1,39 @@
+@import "../../assets/scss/_variable.scss";
+.footer {
+    padding: 25px 0 35px 0;
+    background: #fff;
+    
+    .footer-box {
+        width: $width;
+        margin: 0 auto;
+    }
+
+    .source-code-add {
+
+        a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+    }
+
+    .vendor {
+
+        li {
+            float: left;
+            margin: 15px 30px 0 0;
+        }
+
+        span {
+            margin-right: 10px;
+            color: #666;
+        }
+
+        .cnode {
+
+            img {
+                width: 100px;
+                @include user-select;
+            }
+        }
+    }
+}
