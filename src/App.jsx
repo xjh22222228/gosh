@@ -53,7 +53,7 @@ import { observable } from 'mobx'
             return config;
         }, e => {
             this.progressEnd();
-            message.warning('API请求失败!')
+            message.warning('API请求失败!');
             return Promise.reject(e);
         });
         
@@ -62,7 +62,7 @@ import { observable } from 'mobx'
             this.progressEnd();
             return res;
         }, e => {
-            message.warning('请求超时或服务器出错!')
+            message.warning('请求超时或服务器出错!');
             this.progressEnd();
             return Promise.reject(e);
         });

@@ -25,8 +25,27 @@
         float: right;
 
         a {
-            color: #fff;
+            position: relative;
+            color: #ccc;
             margin-left: 20px;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        .unread-msg {
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: -3px;
+                right: -9px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #f50;
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ import API_CONFIG from '../../api'
 import { fromNow } from '../../utils'
 import { observer, inject } from 'mobx-react'
 import './style.scss'
-import { Icon } from 'antd'
+import { Icon, message } from 'antd'
 import { observable } from 'mobx'
 
 /* eslint-disable */
@@ -87,6 +87,7 @@ import { observable } from 'mobx'
 
     // 点赞/取消点赞
     likeBtn (id, index) {
+        if( !this.props.store.isLogin ) return message.warning('您未登陆!');;
         axios.post(`${API_CONFIG.like}${id}/ups`)
         .then(res => {
             if( res.data.success ) {
@@ -164,15 +165,10 @@ import { observable } from 'mobx'
                                                         }
                                                     </div>
                                                     <div className="operation user-select-none">
-                                                        {
-                                                            this.props.store.isLogin
-                                                            &&
-                                                            <div>
-                                                                <Icon type={item.is_uped ? 'like' : 'like-o'} onClick={this.likeBtn.bind(this, item.id, index)} />
-                                                                <em>{ item.ups.length }</em>
-                                                            </div>
-                                                        }
-                                                        
+                                                        <div>
+                                                            <Icon type={item.is_uped ? 'like' : 'like-o'} onClick={this.likeBtn.bind(this, item.id, index)} />
+                                                            <em>{ item.ups.length }</em>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div className="reply-content markdown-body" dangerouslySetInnerHTML={{__html: item.content}}></div>

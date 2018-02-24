@@ -28,7 +28,7 @@ import { Link } from 'react-router-dom'
                         </div> */}
                     </div>
                     :
-                    <div>
+                    <div className="tourist-box">
                         <div className="cnode">CNode：Node.js专业中文社区</div>
                         <div className="tourist">
                             <span>当前是游客状态，您可以 </span>

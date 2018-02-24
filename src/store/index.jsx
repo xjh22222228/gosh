@@ -10,7 +10,8 @@ class Store {
         avatar_url: '',     // 头像
         id: '',             // 用户 id
         loginname: '',      // 用户名
-    }
+    };
+    @observable messageCount = 0;   // 未读消息数
 
     /**
      * @func 登录
@@ -21,14 +22,15 @@ class Store {
         window.localStorage.access_token = window.localStorage.save_access_token = this.accessToken = accessToken;
         this.userInfo = userInfo;
         this.isLogin = true;
+        this.fetchMessageCount();
     }
 
-    @action logout (a) {
+    @action logout () {
         window.localStorage.removeItem('access_token');
         this.accessToken = '';
         this.isLogin = false;
     }
-
+    // 检查是否已登录
     @action checkLogin () {
         if( this.accessToken ) {
             axios.post(API_CONFIG.login)
@@ -36,10 +38,22 @@ class Store {
                 if( res.data.success ) {
                     this.isLogin = true;
                     this.userInfo = res.data;
+                    this.fetchMessageCount();
                 }
             })
             .catch(e => e);
         }
+    }
+
+    // 获取未读消息数
+    @action fetchMessageCount () {
+        axios.get(API_CONFIG.messageCount)
+        .then(res => {
+            if( res.data.success ) {
+                this.messageCount = res.data.data;
+            }
+        })
+        .catch(e => e);
     }
 }
 

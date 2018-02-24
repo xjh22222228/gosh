@@ -158,6 +158,7 @@ class HomePage extends Component {
                         <NavLink to="/?tab=share" isActive={this.isActive.bind(this, 'share')}>分享</NavLink>
                         <NavLink to="/?tab=ask" isActive={this.isActive.bind(this, 'ask')}>问答</NavLink>
                         <NavLink to="/?tab=job" isActive={this.isActive.bind(this, 'job')}>招聘</NavLink>
+                        <NavLink to="/?tab=dev" isActive={this.isActive.bind(this, 'dev')}>客户端测试</NavLink>
                     </nav>
                     <div className="topics-list">
                         <div className="mark-box" style={{display: !this.state.mark ? 'none' : ''}}>

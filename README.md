@@ -99,6 +99,9 @@
         ├── login                # 登录页
         │   ├── Login.jsx
         │   └── login.scss
+        ├── messages             # 未读消息
+        │   ├── Messages.jsx
+        │   └── messages.scss
         └── topic                # 主题详情页
             ├── Topic.jsx
             └── style.scss
@@ -108,9 +111,9 @@
 ### 小结
 + 本来想打算把所有CNode提供的API开发完成再发布的，然而发现需要处理的东西挺多的，再加上自己并没有太多的时间，一直在拖着。
 + 现在的想法是后续会一个一个把CNode提供的API都加上，不久后就会有一个完整版。
-+ React更新的太快在写的时候发现dangerouslySetHTML 已更改成 dangerouslySetInnerHTML。
-+ CNode主题详情是使用markdown写的，样式可以使用github-markdown-css.
++ CNode主题详情是使用markdown写的，样式可以使用github-markdown-css。
 + CNode提供的API获取主题没有返回总条数导致不能算出总页数, 所以我写死了250页。
++ 大部分功能都需要登录的，所以游客只能进行浏览，如果感兴趣的可以尝试登录。
 
 ...
 

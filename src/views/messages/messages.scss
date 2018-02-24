@@ -1,0 +1,44 @@
+@import "../../assets/scss/_variable.scss";
+.messages {
+    
+    .top {
+        padding: 10px 10px;
+        background: #f6f6f6;
+
+        a {
+            color: #80bd01;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        em {
+            color: #ccc;
+        }
+    }
+
+    .msg-list {
+        background: #fff;
+        padding: 10px;
+
+        li {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-bottom: 5px;
+            
+            a {
+                color: #08c;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .past-times {
+        margin-top: 15px;
+    }
+}
