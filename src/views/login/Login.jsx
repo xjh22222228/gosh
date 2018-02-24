@@ -16,7 +16,7 @@ import API_CONFIG from '../../api'
 
     componentWillMount () {
         // 是否存在口令
-        if( this.props.store.accessToken ) {
+        if( this.props.store.acces4sToken ) {
             this.props.history.replace('/');
         }
     }
