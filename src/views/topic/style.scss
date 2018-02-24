@@ -176,6 +176,47 @@
             padding-left: 40px;
         }
     }
+
+    // 新建评论
+    .insert-reply {
+        margin-top: 15px;
+        background: #fff;
+
+        .tip {
+            padding: 10px;
+            background: #f6f6f6;
+        }
+
+        .reply-btn {
+            padding: 0 0 10px 10px;
+
+            button {
+                position: relative;
+                color: #fff;
+                background: #08c;
+                border-radius: 3px;
+                padding: 5px 10px;
+                font-weight: 500;
+                border: none;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 3px;
+                    background: #000;
+                    opacity: 0;
+                }
+
+                &:active:after {
+                    opacity: .1;
+                }
+            }
+        }
+    }
 }
 
 

@@ -19,6 +19,8 @@ const API_CONFIG = {
     messageMarkAll: 'https://cnodejs.org/api/v1/message/mark_all',
     // 标记单个消息为已读 POST  /message/mark_one/:msg_id
     messageMarkOne: 'https://cnodejs.org/api/v1/message/mark_one/',
+    // 新建评论 POST /topic/:topic_id/replies
+    replies: 'https://cnodejs.org/api/v1/topic/',
 };
 
 
