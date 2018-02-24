@@ -47,8 +47,6 @@ import { observable } from 'mobx'
                 return '招聘';
             case 'good':
                 return '精华';
-            case 'dev':
-                return '客户端测试';
             default:
                 return '';
         }

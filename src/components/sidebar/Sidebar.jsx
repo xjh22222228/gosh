@@ -22,10 +22,10 @@ import { Link } from 'react-router-dom'
                         <div className="info user-select-none">
                             <img src={this.props.store.userInfo.avatar_url} alt="头像" />
                             <em className="nickname">{ this.props.store.userInfo.loginname }</em>
-                            <div>
-
-                            </div>
                         </div>
+                        {/* <div className="publish-topic">
+                            <button type="button">发布话题</button>
+                        </div> */}
                     </div>
                     :
                     <div className="tourist-box">
@@ -45,10 +45,6 @@ import { Link } from 'react-router-dom'
                         </div>
                     </div>
                 }
-                </div>
-                {/* 发表新主题 */}
-                <div className="publish-topic">
-                    <Link to="/topic/publish"><button type="button">发布话题</button></Link>
                 </div>
                 {/* 收款码 */}
                 <div className="pay pointer-events-none">

@@ -139,12 +139,6 @@ class HomePage extends Component {
                     text: '精华',
                     className: topic.tab
                 };
-            // 客户端测试
-            case 'dev':
-                return {
-                    text: '客户端测试',
-                    className: topic.tab
-                };
             default:
                 return {
                     text: '',

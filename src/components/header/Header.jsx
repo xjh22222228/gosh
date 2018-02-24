@@ -23,7 +23,6 @@ import { message } from 'antd';
                     <nav className="nav">
                         <Link to="/">首页</Link>
                         { this.props.store.isLogin && <Link to="/messages" className={this.props.store.messageCount > 0 ? 'unread-msg' : ''}>未读消息</Link> }
-                        <Link to="/">未读消息</Link>
                         <a href="https://github.com/xjh22222228" ref="noopenr noreferer" target="_blank">关于作者</a>
                         {
                             this.props.store.isLogin ? 

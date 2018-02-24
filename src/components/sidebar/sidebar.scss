@@ -28,7 +28,36 @@
             }
         }
 
+        .publish-topic {
 
+            button {
+                position: relative;
+                margin: 5px 0 0 0;
+                padding: 5px 10px;
+                background: #80bd01;
+                color: #fff;
+                border-radius: 5px;
+                font-weight: 500;
+                border: 1px solid #80bd01;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: #000;
+                    border-radius: 5px;
+                    opacity: 0;
+                    transition: opacity .1s linear;
+                }
+
+                &:hover:after {
+                    opacity: .05;
+                }
+            }
+        }
 
         .tourist-box {
             padding: 10px;
@@ -50,43 +79,7 @@
             }
         }
     }
-    //发布话题
-    .publish-topic {
-        width: 100%;
-        height: 50px;
-        background: #fff;
-        margin-top: 15px;
-        padding-top: 4px;
-        padding-left: 15px;
-        border-radius:5px;
-        button {
-            position: relative;
-            margin: 5px 0 0 0;
-            padding: 5px 10px;
-            background: #80bd01;
-            color: #fff;
-            border-radius: 5px;
-            font-weight: 500;
-            border: 1px solid #80bd01;
 
-            &:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #000;
-                border-radius: 5px;
-                opacity: 0;
-                transition: opacity .1s linear;
-            }
-
-            &:hover:after {
-                opacity: .05;
-            }
-        }
-    }
     // 收款
     .pay {
         margin-top: 15px;
