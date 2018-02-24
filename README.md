@@ -114,7 +114,6 @@
 + CNode主题详情是使用markdown写的，样式可以使用github-markdown-css。
 + CNode提供的API获取主题没有返回总条数导致不能算出总页数, 所以我写死了250页。
 + 大部分功能都需要登录的，所以游客只能进行浏览，如果感兴趣的可以尝试登录。
-+ 发布文章和评论使用的markdown编辑器 [simplemde](https://github.com/sparksuite/simplemde-markdown-editor)
 
 ...
 
