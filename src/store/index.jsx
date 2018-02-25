@@ -11,7 +11,24 @@ class Store {
         id: '',             // 用户 id
         loginname: '',      // 用户名
     };
-    @observable messageCount = 0;   // 未读消息数
+    @observable messageCount = 0;       // 未读消息数
+    @observable updateTopicsInfo = {    // 待更新的主题信息
+        author: {
+            avatar_url: 'https://avatars1.githubusercontent.com/u/15535177?s=460&v=4',
+            loginname: '--',
+        },
+        author_id: '',
+        content: '',
+        good: false,
+        id: '',
+        is_collect: false,
+        replies: [],
+        reply_count: 0,
+        tab: '',
+        title: '',
+        top: false,
+        visit_count: 0,
+    };
 
     /**
      * @func 登录
@@ -54,6 +71,12 @@ class Store {
             }
         })
         .catch(e => e);
+    }
+
+    // 将主题详情存入状态以供编辑使用
+    @action handleUpdateTopicsInfo (detail) {
+        this.updateTopicsInfo = detail;
+        window.localStorage.updateTopicsInfo = JSON.stringify(detail);
     }
 }
 

@@ -1,0 +1,95 @@
+@import "../../assets/scss/_variable.scss";
+.release {
+
+    .release-left {
+        background: #fff;
+    }
+
+    .top {
+        padding: 10px;
+        background: $boxTopColor;
+
+        a {
+            color: #80bd01;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        em {
+            color: #ccc;
+        }
+    }
+
+    .select-tab {
+        padding: 10px;
+    }
+
+    .title {
+        margin: 0 10px 10px 10px;
+    }
+
+    .release-btn {
+        padding: 0 0 10px 10px;
+
+        button {
+            position: relative;
+            color: #fff;
+            background: #08c;
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-weight: 500;
+            border: none;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 3px;
+                background: #000;
+                opacity: 0;
+            }
+
+            &:active:after {
+                opacity: .1;
+            }
+        }
+    }
+
+    // 侧边栏
+    .release-sidebar {
+        width: $sidebarWidth;
+        float: right;
+
+        .block-box {
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 3px;
+        }
+
+        .title-top {
+            padding: 10px;
+            background: $boxTopColor;
+        }
+
+        .inner {
+            padding: 15px 10px;
+
+            p {
+                line-height: 26px;
+            }
+
+            a {
+                color: #778087;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

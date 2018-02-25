@@ -1,7 +1,7 @@
 const API_CONFIG = {
-    // 获取用户详情信息
+    // 获取用户详情信息 GET
     login: 'https://cnodejs.org/api/v1/accesstoken',
-    // 获取主题列表
+    // 获取主题列表 GET
     topics: 'https://cnodejs.org/api/v1/topics',
     // 获取主题详情包括回复 GET
     topicDetail: 'https://cnodejs.org/api/v1/topic/',
@@ -21,6 +21,10 @@ const API_CONFIG = {
     messageMarkOne: 'https://cnodejs.org/api/v1/message/mark_one/',
     // 新建评论 POST /topic/:topic_id/replies
     replies: 'https://cnodejs.org/api/v1/topic/',
+    // 新建主题 POST
+    newTopics: 'https://cnodejs.org/api/v1/topics',
+    // 编辑主题 POST
+    updateTopics: 'https://cnodejs.org/api/v1/topics/update',
 };
 
 

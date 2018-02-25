@@ -12,6 +12,9 @@
 ![](https://raw.githubusercontent.com/xjh22222228/React-CNode/master/public/images/22.png)
 
 
+![](https://raw.githubusercontent.com/xjh22222228/React-CNode/master/public/images/33.png)
+
+
 ### 技术栈
 ```
 "react": "^16.2.0",
@@ -23,6 +26,7 @@
 "axios": "^0.17.1",
 "moment": "^2.20.1",
 "webpack": "3.8.1",
+"simplemde": "^1.11.2",
 "scss": "",
 "ES6": "",
 "flex": "",
@@ -102,24 +106,42 @@
         ├── messages             # 未读消息
         │   ├── Messages.jsx
         │   └── messages.scss
+        ├── release              # 发布/编辑话题
+        │   ├── Release.jsx
+        │   └── release.scss
         └── topic                # 主题详情页
             ├── Topic.jsx
             └── style.scss
 ```
 
 
-### 小结
-+ 本来想打算把所有CNode提供的API开发完成再发布的，然而发现需要处理的东西挺多的，再加上自己并没有太多的时间，一直在拖着。
-+ 现在的想法是后续会一个一个把CNode提供的API都加上，不久后就会有一个完整版。
+### API清单 x 15
+- [√] 主题首页
+- [√] 主题详情
+- [√] 新建主题
+- [√] 编辑主题
+- [√] 收藏主题
+- [√] 取消收藏主题
+- [-] 用户所收藏的主题
+- [√] 新建评论
+- [√] 为评论点赞
+- [-] 用户详情
+- [√] 登录
+- [√] 获取未读消息数
+- [√] 获取已读和未读消息
+- [√] 标记全部已读
+- [√] 标记单个消息为已读
+
+
+### 结语
 + CNode主题详情是使用markdown写的，样式可以使用github-markdown-css。
 + CNode提供的API获取主题没有返回总条数导致不能算出总页数, 所以我写死了250页。
-+ 大部分功能都需要登录的，所以游客只能进行浏览，如果感兴趣的可以尝试登录。
-+ 发布文章和评论使用的markdown编辑器 [simplemde](https://github.com/sparksuite/simplemde-markdown-editor)
++ 大部分功能都需要登录的，所以游客只能进行浏览，如果感兴趣的可以尝试登录, 不会保存你的accesstoken, 欢迎监督。
++ 发布话题和评论使用的markdown编辑器 [simplemde](https://github.com/sparksuite/simplemde-markdown-editor)
 
 ...
 
-
-您的一个👍使得我有继续开源的动力，感谢！
+👍👍👍
 
 
 ----

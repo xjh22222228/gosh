@@ -34,9 +34,52 @@ import './messages.scss'
 
     componentDidMount () {
         this.fetchMessages();
+        // 标记全部已读
+        if( this.props.store.messageCount > 0 ) {
+            axios.post(API_CONFIG.messageMarkAll)
+            .then(res => {})
+            .catch(e => e);
+        }
     }
 
     render () {
+        // 消息组件
+        var Msg = ({ x }) => {
+            return (
+                <div className="msg-list">
+                    {
+                        this.message[x].length === 0 && <div className="no-msg">暂无消息</div>
+                    }
+                    <ul>
+                    {
+                        this.message[x].map((item, index) => {
+                            return (
+                                <li key={item.id}>
+                                    {
+                                        item.type === 'reply' ?
+                                        <div>
+                                            <a href={`https://cnodejs.org/user/${item.author.loginname}`}>{ item.author.loginname }</a>
+                                            <span> 回复了你的话题 </span>
+                                            <Link to={`/topic/${item.topic.id}`}>{ item.topic.title }</Link>
+                                        </div>
+                                        : item.type == 'at'
+                                        ?
+                                        <div>
+                                            <a href={`https://cnodejs.org/user/${item.author.loginname}`}>{ item.author.loginname }</a>
+                                            <span> 在话题 </span>
+                                            <Link to={`/topic/${item.topic.id}`}>{ item.topic.title }</Link>
+                                            <span> 中@了你</span>
+                                        </div>
+                                        : ''
+                                    }
+                                </li>
+                            );
+                        })
+                    }
+                    </ul>
+                </div>
+            );
+        };
         return (
             <section className="index-section">
                 <div className="topics-container messages">
@@ -46,45 +89,11 @@ import './messages.scss'
                             <em> / </em>
                             <span>新消息</span>
                         </div>
-                        <div className="msg-list">
-                            {
-                                this.message.hasnot_read_messages.length === 0 && <div className="no-msg">暂无消息</div>
-                            }
-                            <ul>
-                            {
-                                this.message.hasnot_read_messages.map((item, index) => {
-                                    return (
-                                        <li key={item.id}>
-                                            <a href={`https://cnodejs.org/user/${item.author.loginname}`}>{ item.author.loginname }</a>
-                                            <span> 回复了你的话题 </span>
-                                            <Link to={`/topic/${item.topic.id}`}>{ item.topic.title }</Link>
-                                        </li>
-                                    );
-                                })
-                            }
-                            </ul>
-                        </div>
+                        <Msg x="hasnot_read_messages" />
                     </div>
                     <div className="past-times">
                         <div className="top">已读消息</div>
-                        <div className="msg-list">
-                            {
-                                this.message.has_read_messages.length === 0 && <div className="no-msg">暂无消息</div>
-                            }
-                            <ul>
-                            {
-                                this.message.has_read_messages.map((item, index) => {
-                                    return (
-                                        <li key={item.id}>
-                                            <a href={`https://cnodejs.org/user/${item.author.loginname}`}>{ item.author.loginname }</a>
-                                            <span> 回复了你的话题 </span>
-                                            <Link to={`/topic/${item.topic.id}`}>{ item.topic.title }</Link>
-                                        </li>
-                                    );
-                                })
-                            }
-                            </ul>
-                        </div>
+                        <Msg x="has_read_messages" />
                     </div>
                 </div>
                 <Sidebar />

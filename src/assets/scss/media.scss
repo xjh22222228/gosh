@@ -9,7 +9,8 @@
         }
     }
 
-    .sidebar {
+    .sidebar,
+    .release-sidebar {
         margin-right: 10px;
     }
 
@@ -27,7 +28,8 @@
         width: calc(100% - 20px) !important;
     }
 
-    .sidebar {
+    .sidebar,
+    .release-sidebar {
         display: none;
     }
 

@@ -3,7 +3,7 @@
     
     .top {
         padding: 10px 10px;
-        background: #f6f6f6;
+        background: $boxTopColor;
 
         a {
             color: #80bd01;
@@ -23,10 +23,17 @@
         padding: 10px;
 
         li {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            margin-bottom: 5px;
+            padding: 10px 0;
+            
+            &:not(:nth-last-child(1)) {
+                border-bottom: 1px solid #f6f6f6;
+            }
+
+            > div {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
             
             a {
                 color: #08c;

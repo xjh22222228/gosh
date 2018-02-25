@@ -23,9 +23,9 @@ import { Link } from 'react-router-dom'
                             <img src={this.props.store.userInfo.avatar_url} alt="头像" />
                             <em className="nickname">{ this.props.store.userInfo.loginname }</em>
                         </div>
-                        {/* <div className="publish-topic">
-                            <button type="button">发布话题</button>
-                        </div> */}
+                        <div className="publish-topic">
+                            <Link to="/release/create">发布话题</Link>
+                        </div>
                     </div>
                     :
                     <div className="tourist-box">
