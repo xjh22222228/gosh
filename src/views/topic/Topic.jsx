@@ -7,15 +7,16 @@ import './topic.scss'
 import { Icon, message } from 'antd'
 import { observable } from 'mobx'
 import SimpleMDE from 'simplemde'
+import { Link } from 'react-router-dom'
 
 /* eslint-disable */
 @inject(stores => stores)
 @observer class Topic extends Component {
 
-    @observable loading = false;
+    @observable loading = true;
     @observable detail = {
         author: {
-            avatar_url: 'https://avatars1.githubusercontent.com/u/15535177?s=460&v=4',
+            avatar_url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACAQMAAACnuvRZAAAAA1BMVEX29vYACyOqAAAACklEQVQI12MAAgAABAABINItbwAAAABJRU5ErkJggg==',
             loginname: '--',
         },
         author_id: '',
@@ -61,14 +62,14 @@ import SimpleMDE from 'simplemde'
 
     // 获取主题详情
     fetchTopic = () => {
-        this.loading = true;
         axios.get(`${API_CONFIG.topicDetail}${this.props.match.params.id}`)
         .then(res => {
-            this.loading = false;
-            if( res.data.success ) this.detail = res.data.data;
+            if( res.data.success ) {
+                this.detail = res.data.data;
+                this.loading = false;
+            }
         })
         .catch(e => {
-            this.loading = false;
             this.props.history.replace('/');
         });
     }
@@ -133,8 +134,6 @@ import SimpleMDE from 'simplemde'
         if( !val ) return message.warning('内容不能为空!');
         this.insertBtnText = '发送中...';
         axios.post(`${API_CONFIG.replies}${this.detail.id}/replies`, {
-            // 如果这个评论是对另一个评论的回复，请务必带上此字段。这样前端就可以构建出评论线索图
-            reply_id: this.detail.id,
             content: val,
         })
         .then(res => {
@@ -151,10 +150,11 @@ import SimpleMDE from 'simplemde'
         });
     }
 
-    // 点击编辑按钮
-    skipToReleasePage = () => {
-        this.props.history.push(`/release/${this.detail.id}`);
-        this.props.store.handleUpdateTopicsInfo(this.detail);
+    // 回复别人
+    replyOthers (loginname) {
+        var top = document.querySelector('.insert-reply').offsetTop;
+        window.scrollTo(0, top - 80);
+        this.simplemde.value(`@${loginname} `);
     }
 
     componentDidMount () {
@@ -168,9 +168,7 @@ import SimpleMDE from 'simplemde'
             <section className="topic index-section">
                 <div className="topics-container">
                     <div className="detail">
-                        {
-                            this.loading && <div className="loading">loading...</div>
-                        }
+                        { this.loading && <div className="loading">loading...</div> }
                         <div className="topic-top">
                             <div className="topic-title">
                                 {
@@ -182,7 +180,7 @@ import SimpleMDE from 'simplemde'
                             <div className="topic-bottom">
                                 <div className="topic-info">
                                     <span>• 发布于 { fromNow(this.detail.create_at) } • 作者 </span>
-                                    <a href={`https://cnodejs.org/user/${this.detail.author.loginname}`}>{ this.detail.author.loginname }</a>
+                                    <Link to={`/user/${this.detail.author.loginname}`}>{ this.detail.author.loginname }</Link>
                                     <span> • { this.detail.visit_count } 次浏览 • 最后一次编辑是 { fromNow(this.detail.last_reply_at) } • 来自 { this.comeFrom(this.detail.tab) }</span>
                                 </div>
                                 {
@@ -198,7 +196,9 @@ import SimpleMDE from 'simplemde'
                                     this.detail.author_id === this.props.store.userInfo.id
                                     &&
                                     <div className="operation-edit">
-                                        <Icon type="edit" title="编辑" onClick={this.skipToReleasePage} />
+                                        <Link to={`/release/${this.detail.id}`}>
+                                            <Icon type="edit" title="编辑" />
+                                        </Link>
                                     </div>
                                 }
                             </div>
@@ -217,11 +217,13 @@ import SimpleMDE from 'simplemde'
                                         return (
                                             <li key={item.id}>
                                                 <div className="avatar">
-                                                    <img src={ item.author.avatar_url } alt="头像" />
+                                                    <Link to={`/user/${item.author.loginname}`}>
+                                                        <img src={ item.author.avatar_url } alt="头像" />
+                                                    </Link>
                                                 </div>
                                                 <div className="reply-right">
                                                     <div className="reply-author">
-                                                        <em>{ item.author.loginname }</em>
+                                                        <Link to={`/user/${item.author.loginname}`}>{ item.author.loginname }</Link>
                                                         <span>{ index + 1 }楼•{ fromNow(item.create_at) }</span>
                                                         {
                                                            this.detail.author.loginname == item.author.loginname && <strong>作者</strong>
@@ -232,6 +234,12 @@ import SimpleMDE from 'simplemde'
                                                             <Icon type={item.is_uped ? 'like' : 'like-o'} onClick={this.likeBtn.bind(this, item.id, item.author, index)} />
                                                             <em>{ item.ups.length }</em>
                                                         </div>
+                                                        {
+                                                            this.props.store.isLogin &&
+                                                            <div onClick={this.replyOthers.bind(this, item.author.loginname)}>
+                                                                <Icon type="rollback" />
+                                                            </div>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div className="reply-content markdown-body" dangerouslySetInnerHTML={{__html: item.content}}></div>
@@ -260,9 +268,4 @@ import SimpleMDE from 'simplemde'
 
 
 export default Topic;
-
-
-
-
-
 

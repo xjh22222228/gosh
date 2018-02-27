@@ -1,0 +1,33 @@
+@import "../../assets/scss/_variable.scss";
+.collections {
+    position: relative;
+    min-height: 250px;
+    background: #fff;
+
+    .collections-loading {
+        position: absolute;
+        top: 80px;
+        left: calc(50% - 30px);
+    }
+
+    .collections-title {
+        padding: 10px;
+        background: $boxTopColor;
+
+        a {
+            color: #80bd01;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        em {
+            color: #ccc;
+        }
+
+        span {
+            color: #999;
+        }
+    }
+}

@@ -13,6 +13,7 @@ import './messages.scss'
         has_read_messages: [],
         hasnot_read_messages: []
     };
+    @observable loading = true;
 
     constructor (props) {
         super(props);
@@ -24,6 +25,7 @@ import './messages.scss'
         axios.get(API_CONFIG.fetchMessages)
         .then(res => {
             if( res.data.success ) {
+                this.loading = false;
                 this.message = res.data.data;
             }
         })
@@ -44,15 +46,14 @@ import './messages.scss'
 
     render () {
         // 消息组件
-        var Msg = ({ x }) => {
+        var Msg = ({ obj }) => {
             return (
                 <div className="msg-list">
-                    {
-                        this.message[x].length === 0 && <div className="no-msg">暂无消息</div>
-                    }
+                    { this.loading && <div className="msg-loading"></div> }
+                    { this.message[obj].length === 0 && <div className="no-msg">暂无消息</div> }
                     <ul>
                     {
-                        this.message[x].map((item, index) => {
+                        this.message[obj].map((item, index) => {
                             return (
                                 <li key={item.id}>
                                     {
@@ -89,11 +90,11 @@ import './messages.scss'
                             <em> / </em>
                             <span>新消息</span>
                         </div>
-                        <Msg x="hasnot_read_messages" />
+                        <Msg obj="hasnot_read_messages" />
                     </div>
                     <div className="past-times">
                         <div className="top">已读消息</div>
-                        <Msg x="has_read_messages" />
+                        <Msg obj="has_read_messages" />
                     </div>
                 </div>
                 <Sidebar />

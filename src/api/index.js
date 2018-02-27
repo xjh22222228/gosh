@@ -25,6 +25,10 @@ const API_CONFIG = {
     newTopics: 'https://cnodejs.org/api/v1/topics',
     // 编辑主题 POST
     updateTopics: 'https://cnodejs.org/api/v1/topics/update',
+    // 用户详情 GET /user/:loginname
+    user: 'https://cnodejs.org/api/v1/user/',
+    // 用户所收藏的主题 GET  /topic_collect/:loginname
+    userCollections: 'https://cnodejs.org/api/v1/topic_collect/',
 };
 
 

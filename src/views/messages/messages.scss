@@ -16,11 +16,25 @@
         em {
             color: #ccc;
         }
+
+        span {
+            color: #999;
+        }
     }
 
     .msg-list {
+        position: relative;
         background: #fff;
         padding: 10px;
+
+        .msg-loading {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            height: 20px;
+            background: #f7f7f7;
+        }
 
         li {
             padding: 10px 0;

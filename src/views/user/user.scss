@@ -1,0 +1,69 @@
+@import "../../assets/scss/_variable.scss";
+.user {
+
+    .box {
+        margin-bottom: 15px;
+        background: #fff;
+        border-radius: 3px;
+
+        .box-title {
+            padding: 10px;
+            background: $boxTopColor;
+
+            a {
+                color: #80bd01;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .slashes {
+                color: #ccc;
+            }
+
+            span {
+                color: #999;
+            }
+        }
+
+        .user-info {
+            padding: 15px 10px;
+
+            .user {
+                margin-bottom: 10px;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    background: #f6f6f6;
+                }
+
+                span {
+                    margin-left: 10px;
+                }
+            }
+
+            .view-topics-collections {
+                margin-top: 5px;
+
+                a {
+                    color: #333;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .create-at {
+                margin-top: 10px;
+                color: #666;
+            }
+        }
+    }
+
+    .unique-topics-list .title {
+        width: calc(100% - 100px) !important;
+    }
+}

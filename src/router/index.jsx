@@ -8,6 +8,8 @@ import NotMatch from '../views/404/404'
 import Topic from '../views/topic/Topic'
 import Messages from '../views/messages/Messages'
 import Release from '../views/release/Release'
+import User from '../views/user/User'
+import Collections from '../views/collections/Collections'
 
 
 const Routes = () => {
@@ -21,6 +23,8 @@ const Routes = () => {
                         <Route path="/topic/:id" component={Topic} />
                         <Route path="/messages/" component={Messages} />
                         <Route path="/Release/:id" component={Release} />
+                        <Route path="/user/:loginname" exact component={User} />
+                        <Route path="/user/:loginname/collections" component={Collections} />
                         <Route component={NotMatch} />
                     </Switch>
                 <Footer />

@@ -20,8 +20,10 @@ import { Link } from 'react-router-dom'
                     <div>
                         <div className="top user-select-none">个人信息</div>
                         <div className="info user-select-none">
-                            <img src={this.props.store.userInfo.avatar_url} alt="头像" />
-                            <em className="nickname">{ this.props.store.userInfo.loginname }</em>
+                            <Link to={`/user/${this.props.store.userInfo.loginname}`}>
+                                <img src={this.props.store.userInfo.avatar_url} alt="头像" />
+                            </Link>
+                            <Link className="nickname" to={`/user/${this.props.store.userInfo.loginname}`}>{ this.props.store.userInfo.loginname }</Link>
                         </div>
                         <div className="publish-topic">
                             <Link to="/release/create">发布话题</Link>
@@ -40,8 +42,12 @@ import { Link } from 'react-router-dom'
                     <div>
                         <div className="top user-select-none">作者</div>
                         <div className="info user-select-none">
-                            <img src={this.props.author.avatar_url} alt="头像" />
-                            <em className="nickname">{ this.props.author.loginname }</em>
+                            <Link to={`/user/${this.props.author.loginname}`}>
+                                <img src={this.props.author.avatar_url} alt="头像" />
+                            </Link>
+                            <Link to={`/user/${this.props.author.loginname}`}>
+                                <em className="nickname">{ this.props.author.loginname }</em>
+                            </Link>
                         </div>
                     </div>
                 }

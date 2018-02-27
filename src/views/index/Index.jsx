@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './style.scss'
 import API_CONFIG from '../../api'
 import Sidebar from '../../components/sidebar/Sidebar'
-import { fromNow, querystring } from '../../utils'
+import { querystring } from '../../utils'
 import { Pagination } from 'antd'
-
+import List from '../../components/topics-list/TopicsList'
 /* eslint-disable */
 class HomePage extends Component {
 
@@ -60,12 +60,12 @@ class HomePage extends Component {
         })
         .then(res => {
             var afterTime = Date.now() - beforeTime;
-            if( afterTime <= 600 ) {
+            if( afterTime <= 300 ) {
                 setTimeout(() => {
                     this.setState({
                         mark: false,
                     });   
-                }, 600 - afterTime)
+                }, 300 - afterTime)
             } else {
                 this.setState({
                     mark: false,
@@ -101,58 +101,6 @@ class HomePage extends Component {
         window.scrollTo(0, 0);
     }
 
-    tag = topic => {
-        if( topic.top ) {
-            return {
-                text: '置顶',
-                className: 'top',
-            }
-        }
-        if( topic.good ) {
-            return {
-                text: '精华',
-                className: 'good',
-            }
-        }
-        switch(topic.tab) {
-            // 问答
-            case 'ask':
-                return {
-                    text: '问答',
-                    className: topic.tab
-                };
-            // 分享
-            case 'share':
-                return {
-                    text: '分享',
-                    className: topic.tab
-                };
-            // 招聘
-            case 'job':
-                return {
-                    text: '招聘',
-                    className: topic.tab
-                };
-            // 精华
-            case 'good':
-                return {
-                    text: '精华',
-                    className: topic.tab
-                };
-            // 测试
-            case 'dev':
-                return {
-                    text: '测试',
-                    className: topic.tab
-                };
-            default:
-                return {
-                    text: '',
-                    className: 'default'
-                }
-        }
-    }
-
     render () {
         return (
             <section className="index-section">
@@ -172,38 +120,14 @@ class HomePage extends Component {
                             <div className="mark-line"></div>
                             <div className="mark-line"></div>
                         </div>
-                        <ul>
-                            {
-                                this.state.topics.map((item, index) => {
-                                    return (
-                                        <li key={item.id}>
-                                            <div className="avatar">
-                                                <img src={item.author.avatar_url} alt="头像" title={item.author.loginname} />
-                                            </div>
-                                            <div className="reply-view">
-                                                <em>{ item.reply_count }</em>
-                                                <i>/</i>
-                                                <span>{ item.visit_count }</span>
-                                            </div>
-                                            {
-                                                item.tab && <span className={`tag ${this.tag(item).className}`}>{ this.tag(item).text }</span>
-                                            }
-                                            <Link to={`/topic/${item.id}`} className="title">{ item.title }</Link>
-                                            <div className="last-reply-time">
-                                                <time>{ fromNow(item.last_reply_at) }</time>
-                                            </div>
-                                        </li>
-                                    )
-                                })
-                            }
-                        </ul>
+                        <List topics={this.state.topics} />
                     </div>
                     <div className="pagination-box">
                         <Pagination 
-                        current={this.state.page} 
-                        onChange={this.currentChange} 
-                        total={this.state.total} 
-                        pageSize={40} />
+                            current={this.state.page} 
+                            onChange={this.currentChange} 
+                            total={this.state.total} 
+                            pageSize={40} />
                     </div>
                 </div>
                 {/* 侧边栏 */}
