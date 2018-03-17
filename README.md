@@ -1,11 +1,12 @@
 
-基于React实现的一个有点相似CNode社区网站
 
-这应该是目前第三方CNode功能最全面最像的一个吧，如果不是麻烦贴上地址打我脸。
 
-献给刚入门或还在学React的同学们, 有你们社区才会更强大！
+react写的第三方cnode社区网站
 
-2018-02-27
+vue版cnode[点击这里](https://github.com/xjh22222228/vue-cnode)
+
+react转vue, vue转react 都是一个学习的好机会
+
 
 [源码github](https://github.com/xjh22222228/React-CNode)
 
@@ -175,7 +176,8 @@ npm run build
 + 大部分功能都需要登录的，所以游客只能进行浏览，如果感兴趣的可以尝试登录, 不会保存你的accesstoken, 欢迎监督。
 + 发布话题和评论使用的markdown编辑器 [simplemde](https://github.com/sparksuite/simplemde-markdown-editor)
 + 因为托管在github上，所以首次打开的速度会稍微慢一点，之后基本上是秒开。
-+ 如果没漏的话提供的API功能都已经全部开发完成了，如有漏麻烦反馈下哈，感谢！
+
+学到东西不要忘了给个star哦，谢谢
 
 ...
 

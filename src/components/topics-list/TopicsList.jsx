@@ -72,11 +72,7 @@ class TopicsList extends Component {
                             </div>
                             {
                                 item.reply_count !== undefined &&
-                                <div className="reply-view">
-                                    <em>{ item.reply_count }</em>
-                                    <i>/</i>
-                                    <span>{ item.visit_count }</span>
-                                </div>
+                                <div className="reply-view">{ item.reply_count }/{ item.visit_count }</div>
                             }
                             {
                                 item.tab && <span className={`tag ${this.tag(item).className}`}>{ this.tag(item).text }</span>

@@ -59,14 +59,14 @@ import './messages.scss'
                                     {
                                         item.type === 'reply' ?
                                         <div>
-                                            <a href={`https://cnodejs.org/user/${item.author.loginname}`}>{ item.author.loginname }</a>
+                                            <Link to={`/user/${item.author.loginname}`}>{ item.author.loginname }</Link>
                                             <span> 回复了你的话题 </span>
                                             <Link to={`/topic/${item.topic.id}`}>{ item.topic.title }</Link>
                                         </div>
                                         : item.type == 'at'
                                         ?
                                         <div>
-                                            <a href={`https://cnodejs.org/user/${item.author.loginname}`}>{ item.author.loginname }</a>
+                                            <Link to={`/user/${item.author.loginname}`}>{ item.author.loginname }</Link>
                                             <span> 在话题 </span>
                                             <Link to={`/topic/${item.topic.id}`}>{ item.topic.title }</Link>
                                             <span> 中@了你</span>
