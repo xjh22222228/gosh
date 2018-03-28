@@ -45,6 +45,10 @@ class User extends Component {
         this.fetchUserDetail();
     }
 
+    componentDidUpdate(prevProps, prevState, prevContext) {
+        if( this.props.location !== prevProps.location ) this.fetchUserDetail();
+    }
+
     render () {
         var user = this.state.user;
         return (

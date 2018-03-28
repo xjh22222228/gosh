@@ -159,7 +159,7 @@ react转vue, vue转react 都是一个学习的好机会
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:3888
+# serve with hot reload at localhost:3887
 npm start
 
 # build for production with minification
