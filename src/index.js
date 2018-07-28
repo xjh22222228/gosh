@@ -11,5 +11,5 @@ const store = new Store();
 ReactDOM.render(
 <Provider store={store}>
     <App />
-</Provider>, document.getElementById('app'));
+</Provider>, document.getElementById('xiejiahe'));
 registerServiceWorker();

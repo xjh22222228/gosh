@@ -1,48 +1,46 @@
 
 
 
-react写的第三方cnode社区网站
+> react构建的第三方cnode社区网站
+
 
 vue版cnode[点击这里](https://github.com/xjh22222228/vue-cnode)
 
-react转vue, vue转react 都是一个学习的好机会
 
 
-[源码github](https://github.com/xjh22222228/React-CNode)
+[源码github](https://github.com/xjh22222228/react-cnode)
+
 
 [在线预览](https://xjh22222228.github.io/React-CNode/index.html)
 
 
-![](https://raw.githubusercontent.com/xjh22222228/React-CNode/master/public/images/11.png)
+![](https://raw.githubusercontent.com/xjh22222228/React-CNode/master/public/images/animate.gif)
 
 
-![](https://raw.githubusercontent.com/xjh22222228/React-CNode/master/public/images/22.png)
 
 
-![](https://raw.githubusercontent.com/xjh22222228/React-CNode/master/public/images/33.png)
 
 
-![](https://raw.githubusercontent.com/xjh22222228/React-CNode/master/public/images/44.png)
 
 
-### 技术栈
+## 技术栈
 ```
-"react": "^16.2.0",
-"react-dom": "^16.2.0",
-"react-router-dom": "^4.2.2",
-"mobx": "^3.4.1",
-"mobx-react": "^4.3.5",
-"antd": "^3.1.6",
-"axios": "^0.17.1",
-"moment": "^2.20.1",
+"react": "^16.4.1",
+"react-dom": "^16.4.1",
+"react-router-dom": "^4.3.1",
+"mobx": "^5.0.3",
+"mobx-react": "^5.2.3",
+"antd": "^3.7.3",
+"axios": "^0.18.0",
+"moment": "^2.22.1",
 "webpack": "3.8.1",
 "simplemde": "^1.11.2",
-"scss": "",
-"ES6": "",
-"flex": "",
+"scss",
+"ES6",
+"flex",
 ```
 
-### 开发目录
+## 目录架构
 ```
 .
 ├── LICENSE
@@ -98,7 +96,7 @@ react转vue, vue转react 都是一个学习的好机会
     │       ├── TopicsList.jsx
     │       └── topicsList.scss
     ├── index.js                 # 程序主入口
-    ├── registerServiceWorker.js # 这个文件的作用是缓存，下次打开会更快
+    ├── registerServiceWorker.js 
     ├── router                   # 路由配置
     │   └── index.jsx
     ├── store                    # 状态管理
@@ -133,7 +131,7 @@ react转vue, vue转react 都是一个学习的好机会
 ```
 
 
-### API清单 x 15
+## API清单 x 15
 - [√] 主题首页
 - [√] 主题详情
 - [√] 新建主题
@@ -154,30 +152,31 @@ react转vue, vue转react 都是一个学习的好机会
 
 ----
 
-启动程序
+## 启动程序
 ``` bash
 # install dependencies
-npm install
+yarn or npm install
 
 # serve with hot reload at localhost:3887
-npm start
+yarn start or npm start
 
 # build for production with minification
-npm run build
+yarn build or npm run build
 
 ```
 
 ----
 
 
-### 结语
-+ CNode主题详情是使用markdown写的，样式可以使用github-markdown-css。
-+ CNode提供的API获取主题没有返回总条数导致不能算出总页数, 所以我写死了250页。
-+ 大部分功能都需要登录的，所以游客只能进行浏览，如果感兴趣的可以尝试登录, 不会保存你的accesstoken, 欢迎监督。
-+ 发布话题和评论使用的markdown编辑器 [simplemde](https://github.com/sparksuite/simplemde-markdown-editor)
-+ 因为托管在github上，所以首次打开的速度会稍微慢一点，之后基本上是秒开。
+## 写在最后
+这个项目对新手或进阶都是有帮助的，我认为这是一个非常好的学习机会。如果你认为这是一个非常不错的进阶项目，那么你可以分享给他人。
 
-学到东西不要忘了给个star哦，谢谢
+markdown样式可以使用[github-markdown-css](https://github.com/sindresorhus/github-markdown-css)，github-markdown风格，
+
+markdown编辑器推荐 [simplemde](https://github.com/sparksuite/simplemde-markdown-editor) ，我觉得非常好用，并且他的样式挺好看的。
+
+本项目预览结果托管在github pages上，所以首次访问会稍微慢。
+
 
 ...
 
@@ -187,7 +186,10 @@ npm run build
 ----
 
 
-### License
+## License
+[MIT](https://opensource.org/licenses/MIT)
 
-[MIT](http://opensource.org/licenses/MIT)
+只要注明原作者许可声明，您可以自由地复制、分享、和修改。
+
+Copyright (c) 2018-present, [xiejiahe](https://github.com/xjh22222228)
 

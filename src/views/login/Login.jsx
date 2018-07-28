@@ -58,7 +58,7 @@ import API_CONFIG from '../../api'
                             onChange={this.handleChange.bind(this)} />
                     </div>
                     <div className="get-access-token">
-                        <a href="https://cnodejs.org/setting" target="_blank">如何获取Access Token？</a>
+                        <a href="https://cnodejs.org/setting" target="_blank" rel="noopener noreferer">如何获取Access Token？</a>
                     </div>
                     <div className="submit user-select-none" onClick={this.handleSubmit}>Sign in</div>
                 </div>

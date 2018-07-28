@@ -131,11 +131,11 @@ module.exports = {
           // smaller than specified limit in bytes as data URLs to avoid requests.
           // A missing `test` is equivalent to a match.
           {
-            test: [/\.bmp$/, /\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
-              name: 'static/images/[name].[hash:8].[ext]',
+              name: 'static/media/[name].[hash:8].[ext]',
             },
           },
           {
