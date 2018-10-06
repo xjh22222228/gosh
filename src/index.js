@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'
+import 'antd/dist/antd.css';
 import './assets/scss/style.scss'
 import './assets/scss/media.scss'
 import Store from './store'
