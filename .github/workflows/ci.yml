@@ -1,0 +1,16 @@
+name: Run Code
+on: [push]
+jobs:
+  Run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Use Go 1.15
+      uses: cedrickring/golang-action/go1.15@1.6.0
+    - name: Test
+      run: |
+        go mod tidy -v
+        go test -mod=vendor -race ./...

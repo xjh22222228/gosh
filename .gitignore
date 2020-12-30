@@ -1,0 +1,5 @@
+logs/
+coverage/
+.idea/
+.DS_Store
+print.go
