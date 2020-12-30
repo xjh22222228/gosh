@@ -1,6 +1,6 @@
 <p align="center">
   <img src="media/logo.jpg" width="400">
-  <p align="center">Has JavaScript features！</p>
+  <p align="center">Golang utility library, With JavaScript / Python additional functions!</p>
   <p align="center">
     <img src="https://img.shields.io/github/go-mod/go-version/xjh22222228/gosh" />
     <img src="https://img.shields.io/github/v/release/xjh22222228/gosh" />
@@ -33,7 +33,6 @@ func main() {
 
 
 ## API
-
 - [strings](#strings)
   - [Reverse](#Reverse)
   - [StartsWith](#StartsWith)
@@ -42,6 +41,7 @@ func main() {
   - [Slice](#Slice)
   - [Search](#Search)
   - [Includes](#Includes)
+  - [Trim](#Trim)
 
 
 # strings
@@ -219,6 +219,33 @@ func main()  {
 }
 ```
 
+
+## Trim
+[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/Trim](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)
+
+The **Trim()** method removes whitespace from both ends of a string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.).
+
+Syntax: `Trim(str string) string`
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/gstrings"
+)
+
+func main()  {
+    fmt.Println(gstrings.Trim("   Hello world!   "))  // => Hello world!
+
+    str := `
+
+
+abc
+`
+	fmt.Println(gstrings.Trim(str))  // => abc
+}
+```
 
 
 
