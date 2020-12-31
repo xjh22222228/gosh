@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="media/logo.jpg" width="400">
+  <img src="media/logo.svg" width="350">
   <p align="center">Golang utility library, With JavaScript / Python additional functions!</p>
   <p align="center">
     <img src="https://img.shields.io/github/go-mod/go-version/xjh22222228/gosh" />
