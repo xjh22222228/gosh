@@ -9,13 +9,13 @@ func Center(s string, width int, fillChar ...rune) string {
 		return s
 	}
 
-	_fillChar := []rune(" ")
+	fillC := []rune(" ")
 
 	if len(fillChar) > 0 {
-		_fillChar = []rune(string(fillChar[0]))
+		fillC = []rune(string(fillChar[0]))
 	}
 
-	fillStr := string(_fillChar)
+	fillStr := string(fillC)
 
 	var prefixStr = strings.Builder{}
 	var suffixStr = strings.Builder{}

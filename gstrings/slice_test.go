@@ -1,36 +1,21 @@
 package gstrings
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestSlice(t *testing.T) {
+	_assert := assert.New(t)
 	str := "The quick brown fox jumps over the lazy dog."
 
-	if v := Slice(str, 31); v != "the lazy dog." {
-		t.Fatalf("'%v', expect: the lazy dog.", v)
-	}
-
-	if v := Slice(str, 4, 19); v != "quick brown fox" {
-		t.Fatalf("'%v', expect: quick brown fox", v)
-	}
-
-	if v := Slice(str, -4, len(str)); v != "dog." {
-		t.Fatalf("'%v', expect: dog.", v)
-	}
-
-	if v := Slice(str, -9, -5); v != "lazy" {
-		t.Fatalf("'%v', expect: lazy", v)
-	}
+	_assert.Equal("the lazy dog.", Slice(str, 31))
+	_assert.Equal("quick brown fox", Slice(str, 4, 19))
+	_assert.Equal("dog.", Slice(str, -4))
+	_assert.Equal("lazy", Slice(str, -9, -5))
 
 	str = "The morning is upon us."
-	if v := Slice(str, -3); v != "us." {
-		t.Fatalf("'%v', expect: us.", v)
-	}
-	if v := Slice(str, -3, -1); v != "us" {
-		t.Fatalf("'%v', expect: us", v)
-	}
-	if v := Slice(str, 0, -1); v != "The morning is upon us" {
-		t.Fatalf("'%v', expect: The morning is upon us", v)
-	}
+	_assert.Equal("us.", Slice(str, -3))
+	_assert.Equal("us", Slice(str, -3, -1))
+	_assert.Equal("The morning is upon us", Slice(str, 0, -1))
 }

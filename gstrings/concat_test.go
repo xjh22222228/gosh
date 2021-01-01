@@ -1,12 +1,12 @@
 package gstrings
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestConcat(t *testing.T) {
-	if s := Concat("a", "b", "c"); s != "abc" {
-		t.Fatalf("'%v', expect: abc", s)
-	}
+	_assert := assert.New(t)
 
+	_assert.Equal("abc", Concat("a", "b", "c"))
 }

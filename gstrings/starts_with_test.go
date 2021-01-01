@@ -1,17 +1,14 @@
 package gstrings
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
 
 func TestStartsWith(t *testing.T) {
-	if v := StartsWith("hello world", "hello", 0); !v {
-		t.Fatalf("'%v', expect: true", v)
-	}
+	_assert := assert.New(t)
 
-	if v := StartsWith("hello world", "hello"); !v {
-		t.Fatalf("'%v', expect: true", v)
-	}
-
-	if v := StartsWith("hello world", "hello", 1); v {
-		t.Fatalf("'%v', expect: false", v)
-	}
+	_assert.True(StartsWith("hello world", "hello", 0))
+	_assert.True(StartsWith("hello world", "hello"))
+	_assert.False(StartsWith("hello world", "hello", 1))
 }

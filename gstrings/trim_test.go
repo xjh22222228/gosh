@@ -1,19 +1,18 @@
 package gstrings
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestTrim(t *testing.T) {
-	if v := Trim("   Hello world!   "); v != "Hello world!" {
-		t.Fatalf("'%v', expect: Hello world!", v)
-	}
+	_assert := assert.New(t)
+
+	_assert.Equal("Hello world!", Trim("   Hello world!   "))
 
 	str := `
 
 abc
 `
-	if v := Trim(str); v != "abc" {
-		t.Fatalf("'%v', expect: abc", v)
-	}
+	_assert.Equal("abc", Trim(str))
 }

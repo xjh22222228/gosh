@@ -1,4 +1,4 @@
-name: Run Code
+name: Unit Test
 on: [push]
 jobs:
   Run:
@@ -10,7 +10,7 @@ jobs:
         persist-credentials: false
     - name: Use Go 1.15
       uses: cedrickring/golang-action/go1.15@1.6.0
-    - name: Test
+    - name: Run Test
       run: |
         go mod tidy -v
-        go test -mod=vendor -race ./...
+        go test -race --cover -v ./...

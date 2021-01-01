@@ -1,12 +1,13 @@
 package gstrings
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestReverse(t *testing.T) {
-	if s := Reverse("hello world"); s != "dlrow olleh" {
-		t.Fatalf("'%v', expect: dlrow olleh", s)
-	}
+	_assert := assert.New(t)
+
+	_assert.Equal("dlrow olleh", Reverse("hello world"))
 }
 

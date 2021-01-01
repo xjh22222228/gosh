@@ -1,22 +1,21 @@
 package gstrings
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestSearch(t *testing.T) {
+	_assert := assert.New(t)
 	str := "The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?"
 
-	if v, _ := Search(str, "[^\\w\\s]"); v != 43 {
-		t.Fatalf("'%v', expect: 43", v)
-	}
+	v, _ := Search(str, "[^\\w\\s]")
+	_assert.Equal(43, v)
 
-	str2 := "hey JudE"
-	if v, _ := Search(str2, "[A-Z]"); v != 4 {
-		t.Fatalf("'%v', expect: 4", v)
-	}
+	str = "hey JudE"
+	v, _ = Search(str, "[A-Z]")
+	_assert.Equal(4, v)
 
-	if v, _ := Search(str2, "[.]"); v != -1 {
-		t.Fatalf("'%v', expect: -1", v)
-	}
+	v, _ = Search(str, "[.]")
+	_assert.Equal(-1, v)
 }

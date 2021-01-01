@@ -1,22 +1,17 @@
 package gstrings
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestEndsWith(t *testing.T) {
+	_assert := assert.New(t)
 	s := "hello world"
 
-	if v := EndsWith(s, "world"); !v {
-		t.Fatalf("'%v', expect: true", v)
-	}
+	_assert.True(EndsWith(s, "world"))
 
-	str := "To be, or not to be, that is the question."
-	if v := EndsWith(str, "to be", 19); !v {
-		t.Fatalf("'%v', expect: true", v)
-	}
-
-	if v := EndsWith(str, "to be", len(str)); v {
-		t.Fatalf("'%v', expect: false", v)
-	}
+	s = "To be, or not to be, that is the question."
+	_assert.True(EndsWith(s, "to be", 19))
+	_assert.False(EndsWith(s, "to be"))
 }
