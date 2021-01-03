@@ -33,7 +33,7 @@ func main() {
 
 
 ## API
-- [strings](#strings)
+- [gstrings](#gstrings)
   - [Reverse](#Reverse)
   - [StartsWith](#StartsWith)
   - [EndsWith](#EndsWith)
@@ -47,11 +47,13 @@ func main() {
   - [Center](#Center)
   - [PadStart](#PadStart)
   - [PadEnd](#PadEnd)
-- [random](#random)
+  - [IndexOf](#IndexOf)
+  - [LastIndexOf](#LastIndexOf)
+- [grandom](#grandom)
   - [Random](#Random)
 
 
-# strings
+# gstrings
 
 ## Reverse
 Syntax: `Reverse(str string) string`
@@ -180,8 +182,9 @@ func main()  {
 ## Search
 [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/search](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/search)
 
+The **Search()** method executes a search for a match between a regular expression and this String object.
 
-Syntax: `Search(str, regexp string) (int, error)`
+Syntax: `Search(str, regexp string) int`
 
 - str - string
 - regexp - A regular expression
@@ -196,8 +199,8 @@ import (
 
 func main()  {
     str := "hey JudE"
-    fmt.Println(gstrings.Search(str, "[A-Z]")) // => 4 <nil>
-    fmt.Println(gstrings.Search(str, "[.]"))   // => -1 not found
+    fmt.Println(gstrings.Search(str, "[A-Z]")) // => 4
+    fmt.Println(gstrings.Search(str, "[.]"))   // => -1
 }
 ```
 
@@ -418,11 +421,88 @@ func main() {
 
 
 
+## IndexOf
+[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
+
+The **IndexOf()** method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
+
+Syntax: `IndexOf(str, searchStr string, [, fromIndex int]) int`
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/gstrings"
+)
+
+func main() {
+    str := "hello world"
+    fmt.Println(gstrings.IndexOf(str, ""))      // => 0
+    fmt.Println(gstrings.IndexOf(str, "", 0))   // => 0
+    fmt.Println(gstrings.IndexOf(str, "", 3))   // => 3
+    fmt.Println(gstrings.IndexOf(str, "", 8))   // => 8
+    fmt.Println(gstrings.IndexOf(str, "", 11))  // => 11
+    fmt.Println(gstrings.IndexOf(str, "", 13))  // => 11
+    fmt.Println(gstrings.IndexOf(str, "", 22))  // => 11
+
+    str = "Blue Whale"
+    fmt.Println(gstrings.IndexOf(str, "Blue"))      // => 0
+    fmt.Println(gstrings.IndexOf(str, "Blute"))     // => -1
+    fmt.Println(gstrings.IndexOf(str, "Whale", 0))  // => 5
+    fmt.Println(gstrings.IndexOf(str, "Whale", 5))  // => 5
+    fmt.Println(gstrings.IndexOf(str, "", -1))      // => 0
+    fmt.Println(gstrings.IndexOf(str, "", 9))       // => 9
+    fmt.Println(gstrings.IndexOf(str, "", 10))      // => 10
+    fmt.Println(gstrings.IndexOf(str, "", 11))      // => 10
+    fmt.Println(gstrings.IndexOf(str, "blue"))      // => -1
+}
+```
+
+
+
+
+## LastIndexOf
+[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf)
+
+The **LastIndexOf()** method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
+
+Syntax: `LastIndexOf(str, searchStr string, [, fromIndex int]) int`
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/gstrings"
+)
+
+func main() {
+    str := "canal"
+    fmt.Println(gstrings.LastIndexOf(str, "a"))      // => 3
+    fmt.Println(gstrings.LastIndexOf(str, "a", 2))   // => 1
+    fmt.Println(gstrings.LastIndexOf(str, "a", 0))   // => -1
+    fmt.Println(gstrings.LastIndexOf(str, "x"))      // => -1
+    fmt.Println(gstrings.LastIndexOf(str, "c", -5))  // => 0
+    fmt.Println(gstrings.LastIndexOf(str, "c", 0))   // => 0
+    fmt.Println(gstrings.LastIndexOf(str, ""))       // => 5
+    fmt.Println(gstrings.LastIndexOf(str, "", 2))    // => 2
+
+    fmt.Println(gstrings.LastIndexOf("Brave new world", "w"))      // => 10
+    fmt.Println(gstrings.LastIndexOf("Brave new world", "new"))     // => 6
+}
+```
+
+
+
+
+
+
 
 
 
 ---
-# random
+# grandom
 ## Random
 The **Random()** function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1).
 

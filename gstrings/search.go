@@ -1,22 +1,21 @@
 package gstrings
 
 import (
-	"errors"
 	"regexp"
 )
 
-func Search(s, regex string) (int, error) {
+func Search(s, regex string) int {
 	v, err := regexp.Compile(regex)
 
 	if err != nil {
-		return -1, err
+		return -1
 	}
 
 	result := v.FindStringIndex(s)
 
 	if len(result) >= 1 {
-		return result[0], nil
+		return result[0]
 	}
 
-	return -1, errors.New("not found")
+	return -1
 }
