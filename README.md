@@ -5,6 +5,7 @@
     <img src="https://img.shields.io/github/go-mod/go-version/xjh22222228/gosh" />
     <img src="https://img.shields.io/github/v/release/xjh22222228/gosh" />
     <img src="https://img.shields.io/github/license/xjh22222228/gosh" />
+    <img src="https://img.shields.io/badge/Coverage-100%25-brightgreen.svg" />
   </p>
 <p>
 
@@ -51,6 +52,10 @@ func main() {
   - [LastIndexOf](#LastIndexOf)
 - [grandom](#grandom)
   - [Random](#Random)
+  - [RandBool](#RandBool)
+  - [Shuffle](#Shuffle)
+  - [ShuffleInt](#ShuffleInt)
+  - [ShuffleAny](#ShuffleAny)
 
 
 # gstrings
@@ -489,7 +494,7 @@ func main() {
     fmt.Println(gstrings.LastIndexOf(str, "", 2))    // => 2
 
     fmt.Println(gstrings.LastIndexOf("Brave new world", "w"))      // => 10
-    fmt.Println(gstrings.LastIndexOf("Brave new world", "new"))     // => 6
+    fmt.Println(gstrings.LastIndexOf("Brave new world", "new"))    // => 6
 }
 ```
 
@@ -506,6 +511,8 @@ func main() {
 ## Random
 The **Random()** function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1).
 
+Syntax: `Random() float64`
+
 ```golang
 package main
 
@@ -519,6 +526,91 @@ func main() {
     fmt.Println(grandom.Random()) // => 0.0903486953039843
 }
 ```
+
+
+
+## RandBool
+Randomly select one from `true` or `false`.
+
+Syntax: `RandBool() bool`
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/grandom"
+)
+
+func main() {
+    fmt.Println(grandom.RandBool()) // => false
+    fmt.Println(grandom.RandBool()) // => true
+}
+```
+
+
+
+## Shuffle
+Shuffle the list (rearrange the order of the list items).
+
+Syntax: `Shuffle([]string)`
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/grandom"
+)
+
+func main()  {
+    l := []string{"a", "b", "c", "d", "e"}
+    grandom.Shuffle(l)
+    fmt.Println(l) // => [b e a c d]
+}
+```
+
+
+## ShuffleInt
+See [Shuffle](#Shuffle).
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/grandom"
+)
+
+func main()  {
+    l := []int{1, 2, 3, 4, 5, 6}
+    grandom.ShuffleInt(l)
+    fmt.Println(l) // => [6 4 2 5 1 3]
+}
+```
+
+
+## ShuffleAny
+See [Shuffle](#Shuffle).
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/grandom"
+)
+
+func main()  {
+    l := []interface{}{"a", false, true, 1, "e", 2, nil}
+    grandom.ShuffleAny(l)
+    fmt.Println(l) // => [<nil> 1 e a false true 2]
+}
+```
+
+
+
+
 
 
 
