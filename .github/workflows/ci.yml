@@ -1,5 +1,7 @@
 name: Unit Test
 on: [push]
+  schedule:
+  - cron: '0 23 * * *'
 jobs:
   Run:
     runs-on: ubuntu-latest

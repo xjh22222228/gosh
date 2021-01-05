@@ -1,15 +1,20 @@
 package grandom
 
 import (
-	"math"
+	"log"
+	"math/rand"
+	"time"
 )
 
-func RandInt(a, b int) int {
-	randI := math.Floor(Random() * float64(b))
-
-	for randI < float64(a) {
-		return b
+func RandInt(min, max int) int {
+	if min == max {
+		return min
 	}
 
-	return int(randI)
+	if min > max {
+		log.Panicf("min(%v) cannot be greater than max(%v)", min, max)
+	}
+
+	rand.Seed(time.Now().UnixNano())
+	return rand.Intn(max + 1 - min) + min
 }

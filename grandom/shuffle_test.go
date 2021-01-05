@@ -1,7 +1,6 @@
 package grandom
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -26,6 +25,5 @@ func TestShuffleAny(t *testing.T) {
 	_assert := assert.New(t)
 	v := []interface{}{"a", false, true, 1, "e", 2, nil}
 	ShuffleAny(v)
-	fmt.Println(v)
 	_assert.Len(v, len(v))
 }

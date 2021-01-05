@@ -50,9 +50,11 @@ func main() {
   - [PadEnd](#PadEnd)
   - [IndexOf](#IndexOf)
   - [LastIndexOf](#LastIndexOf)
+  - [Shuffle](#Shuffle)
 - [grandom](#grandom)
   - [Random](#Random)
   - [RandBool](#RandBool)
+  - [RandInt](#RandInt)
   - [Shuffle](#Shuffle)
   - [ShuffleInt](#ShuffleInt)
   - [ShuffleAny](#ShuffleAny)
@@ -500,6 +502,29 @@ func main() {
 
 
 
+## Shuffle
+Shuffle string order.
+
+Syntax: `Shuffle(str string) string`
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/gstrings"
+)
+
+
+func main()  {
+    fmt.Println(gstrings.Shuffle("世界你好 hello world"))  // => 世 rhldwe l好你oo界l
+    fmt.Println(gstrings.Shuffle("123456789"))            // => 648317529
+    fmt.Println(gstrings.Shuffle("abcdefghijk"))          // => hgebfdkcjai
+}
+```
+
+
+
 
 
 
@@ -532,7 +557,7 @@ func main() {
 ## RandBool
 Randomly select one from `true` or `false`.
 
-Syntax: `RandBool() bool`
+Syntax: `RandBool() bool`.
 
 ```golang
 package main
@@ -547,6 +572,34 @@ func main() {
     fmt.Println(grandom.RandBool()) // => true
 }
 ```
+
+
+
+## RandInt
+[https://www.w3schools.com/python/ref_random_randint.asp](https://www.w3schools.com/python/ref_random_randint.asp)
+
+Return a number between `min` and `max` (both included).
+
+Syntax: `RandInt(min, max int) int`.
+
+```golang
+package main
+
+import (
+    "fmt"
+    "github.com/xjh22222228/gosh/grandom"
+)
+
+func main()  {
+    fmt.Println(grandom.RandInt(-1000, 1000))  // => -352
+    fmt.Println(grandom.RandInt(0, 1000))      // => 191
+    fmt.Println(grandom.RandInt(-10000, -10))  // => -1356
+}
+```
+
+
+
+
 
 
 
