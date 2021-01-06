@@ -1,6 +1,6 @@
 <p align="center">
   <img src="media/logo.svg" width="350">
-  <p align="center">Golang utility library, With JavaScript / Python additional functions!</p>
+  <p align="center">Golang utility library, With additional functions such as JavaScript/Python!</p>
   <p align="center">
     <img src="https://img.shields.io/github/go-mod/go-version/xjh22222228/gosh" />
     <img src="https://img.shields.io/github/v/release/xjh22222228/gosh" />
@@ -58,6 +58,7 @@ func main() {
   - [Shuffle](#Shuffle)
   - [ShuffleInt](#ShuffleInt)
   - [ShuffleAny](#ShuffleAny)
+  - [Choice](#Choice)
 
 
 # gstrings
@@ -65,18 +66,10 @@ func main() {
 ## Reverse
 Syntax: `Reverse(str string) string`
 
+The `reverse()` method reverses an string in place. 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main()  {
-    v := gstrings.Reverse("Hello World")
-    fmt.Println(v) // => dlroW olleH
-}
+gstrings.Reverse("Hello World")
+// => dlroW olleH
 ```
 
 
@@ -91,18 +84,9 @@ Syntax: `StartsWith(str, searchString string[, position int]) bool`
 
 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main()  {
-    str := "Saturday night plans"
-    fmt.Println(gstrings.StartsWith(str, "Sat")) // => true
-    fmt.Println(gstrings.StartsWith(str, "Sat", 3)) // => false
-}
+str := "Saturday night plans"
+fmt.Println(gstrings.StartsWith(str, "Sat"))    // => true
+fmt.Println(gstrings.StartsWith(str, "Sat", 3)) // => false
 ```
 
 
@@ -116,20 +100,11 @@ Syntax: `EndsWith(str, searchString string[, length int]) bool`
 - length - [Optional], If provided, it is used as the length of str. Defaults to str.length.
 
 ```golang
-package main
+str := "Cats are the best!"
+fmt.Println(gstrings.EndsWith(str, "best", 17)) // => true
 
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main()  {
-    str := "Cats are the best!"
-    fmt.Println(gstrings.EndsWith(str, "best", 17)) // => true
-
-    str2 := "Is this a question"
-    fmt.Println(gstrings.EndsWith(str2, "?")) // => false
-}
+str2 := "Is this a question"
+fmt.Println(gstrings.EndsWith(str2, "?")) // => false
 ```
 
 
@@ -139,16 +114,7 @@ func main()  {
 Syntax: `Concat(str2, [, ...strN]) string`
 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main()  {
-    fmt.Println(gstrings.Concat("a", "b", "c")) // => abc
-}
+fmt.Println(gstrings.Concat("a", "b", "c")) // => abc
 ```
 
 
@@ -168,21 +134,11 @@ Syntax: `Slice(beginIndex int[, endIndex int]) string`
   - If endIndex is specified, and startIndex and endIndex are both positive or negative, endIndex should be greater than startIndex, otherwise an empty string is returned. (For example, slice(-1, -3) or slice(3, 1) returns "".)
 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-    "math"
-)
-
-func main()  {
-    str := "The quick brown fox jumps over the lazy dog."
-    fmt.Println(gstrings.Slice(str, 31))      // => the lazy dog.
-    fmt.Println(gstrings.Slice(str, 4, 19))   // => quick brown fox
-    fmt.Println(gstrings.Slice(str, -4))      // => dog.
-    fmt.Println(gstrings.Slice(str, -9, -5))  // => lazy
-}
+str := "The quick brown fox jumps over the lazy dog."
+fmt.Println(gstrings.Slice(str, 31))      // => the lazy dog.
+fmt.Println(gstrings.Slice(str, 4, 19))   // => quick brown fox
+fmt.Println(gstrings.Slice(str, -4))      // => dog.
+fmt.Println(gstrings.Slice(str, -9, -5))  // => lazy
 ```
 
 
@@ -197,18 +153,9 @@ Syntax: `Search(str, regexp string) int`
 - regexp - A regular expression
 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main()  {
-    str := "hey JudE"
-    fmt.Println(gstrings.Search(str, "[A-Z]")) // => 4
-    fmt.Println(gstrings.Search(str, "[.]"))   // => -1
-}
+str := "hey JudE"
+fmt.Println(gstrings.Search(str, "[A-Z]")) // => 4
+fmt.Println(gstrings.Search(str, "[.]"))   // => -1
 ```
 
 
@@ -222,18 +169,9 @@ Syntax: `Includes(str, searchString string[, position int]) bool`
 - position - [Optional], The position within the string at which to begin searching for searchString. (Defaults to 0.)
 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main()  {
-    fmt.Println(gstrings.Includes("Blue Whale", "blue")) // => false
-    fmt.Println(gstrings.Includes("Blue Whale", "Blue")) // => true
-    fmt.Println(gstrings.Includes("To be", "To be", 1))  // => false
-}
+fmt.Println(gstrings.Includes("Blue Whale", "blue")) // => false
+fmt.Println(gstrings.Includes("Blue Whale", "Blue")) // => true
+fmt.Println(gstrings.Includes("To be", "To be", 1))  // => false
 ```
 
 
@@ -245,23 +183,14 @@ The **Trim()** method removes whitespace from both ends of a string. Whitespace 
 Syntax: `Trim(str string) string`
 
 ```golang
-package main
+fmt.Println(gstrings.Trim("   Hello world!   "))  // => Hello world!
 
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main()  {
-    fmt.Println(gstrings.Trim("   Hello world!   "))  // => Hello world!
-
-    str := `
+str := `
 
 
 abc
 `
-	fmt.Println(gstrings.Trim(str))  // => abc
-}
+fmt.Println(gstrings.Trim(str))  // => abc
 ```
 
 
@@ -276,21 +205,14 @@ Syntax: `TrimStart(str string) string`
 
 
 ```golang
-package main
+fmt.Println(gstrings.TrimStart(`
 
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main() {
-    fmt.Println(gstrings.TrimStart(`
-
-GOSH`))  // => "GOSH"
+GOSH`))
+// => "GOSH"
 
 
-    fmt.Println(gstrings.TrimStart("   Hello world!   ")) // => "Hello world!   "
-}
+fmt.Println(gstrings.TrimStart("   Hello world!   "))
+// => "Hello world!   "
 ```
 
 
@@ -304,20 +226,13 @@ The **TrimEnd()** method removes whitespace from the end of a string.
 Syntax: `TrimEnd(str string) string`
 
 ```golang
-package main
+fmt.Println(gstrings.TrimEnd("  GOSH  "))
+// => "  GOSH"
 
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
+fmt.Println(gstrings.TrimEnd(`GOSH
 
-func main() {
-    fmt.Println(gstrings.TrimEnd("  GOSH  "))  // => "  GOSH"
-
-    fmt.Println(gstrings.TrimEnd(`GOSH
-
-    `))  // => "GOSH"
-}
+`))
+// => "GOSH"
 ```
 
 
@@ -338,22 +253,13 @@ Syntax: `Center(str string, width int[, fillChar rune]) string`
 
 
 ```golang
-package main
+fmt.Println(gstrings.Center("[GOSH]", 6)) // => [GOSH]
 
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
+fmt.Println(gstrings.Center("[GOSH]", 7)) // => " [GOSH]"
 
-func main() {
-    fmt.Println(gstrings.Center("[GOSH]", 6)) // => [GOSH]
+fmt.Println(gstrings.Center("[GOSH]", 7, '*')) // => *[GOSH]
 
-    fmt.Println(gstrings.Center("[GOSH]", 7)) // => " [GOSH]"
-
-    fmt.Println(gstrings.Center("[GOSH]", 7, '*')) // => *[GOSH]
-
-    fmt.Println(gstrings.Center("[GOSH]", 8, '*')) // => *[GOSH]*
-}
+fmt.Println(gstrings.Center("[GOSH]", 8, '*')) // => *[GOSH]*
 ```
 
 
@@ -373,21 +279,12 @@ Syntax: `PadStart(str string, targetLength int[, padString string]) string`
 
 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main() {
-    str := "abc"
-    fmt.Println(gstrings.PadStart(str, 10))           // => "       abc"
-    fmt.Println(gstrings.PadStart(str, 10, "foo"))    // => "foofoofabc"
-    fmt.Println(gstrings.PadStart(str, 6), "12345")   // => "   abc 12345"
-    fmt.Println(gstrings.PadStart(str, 8, "0"))       // => "00000abc"
-    fmt.Println(gstrings.PadStart(str, 1))            // => "abc"
-}
+str := "abc"
+fmt.Println(gstrings.PadStart(str, 10))           // => "       abc"
+fmt.Println(gstrings.PadStart(str, 10, "foo"))    // => "foofoofabc"
+fmt.Println(gstrings.PadStart(str, 6), "12345")   // => "   abc 12345"
+fmt.Println(gstrings.PadStart(str, 8, "0"))       // => "00000abc"
+fmt.Println(gstrings.PadStart(str, 1))            // => "abc"
 ```
 
 
@@ -408,20 +305,11 @@ Syntax: `PadStart(str string, targetLength int[, padString string]) string`
 
 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main() {
-    str := "abc"
-    fmt.Println(gstrings.PadEnd(str, 10))          // => "abc"
-    fmt.Println(gstrings.PadEnd(str, 10, "foo"))   // => "abcfoofoof"
-    fmt.Println(gstrings.PadEnd(str, 6, "12345"))  // => "abc123"
-    fmt.Println(gstrings.PadEnd(str, 1))           // => "abc"
-}
+str := "abc"
+fmt.Println(gstrings.PadEnd(str, 10))          // => "abc"
+fmt.Println(gstrings.PadEnd(str, 10, "foo"))   // => "abcfoofoof"
+fmt.Println(gstrings.PadEnd(str, 6, "12345"))  // => "abc123"
+fmt.Println(gstrings.PadEnd(str, 1))           // => "abc"
 ```
 
 
@@ -436,34 +324,25 @@ The **IndexOf()** method returns the index within the calling String object of t
 Syntax: `IndexOf(str, searchStr string, [, fromIndex int]) int`
 
 ```golang
-package main
+str := "hello world"
+fmt.Println(gstrings.IndexOf(str, ""))      // => 0
+fmt.Println(gstrings.IndexOf(str, "", 0))   // => 0
+fmt.Println(gstrings.IndexOf(str, "", 3))   // => 3
+fmt.Println(gstrings.IndexOf(str, "", 8))   // => 8
+fmt.Println(gstrings.IndexOf(str, "", 11))  // => 11
+fmt.Println(gstrings.IndexOf(str, "", 13))  // => 11
+fmt.Println(gstrings.IndexOf(str, "", 22))  // => 11
 
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main() {
-    str := "hello world"
-    fmt.Println(gstrings.IndexOf(str, ""))      // => 0
-    fmt.Println(gstrings.IndexOf(str, "", 0))   // => 0
-    fmt.Println(gstrings.IndexOf(str, "", 3))   // => 3
-    fmt.Println(gstrings.IndexOf(str, "", 8))   // => 8
-    fmt.Println(gstrings.IndexOf(str, "", 11))  // => 11
-    fmt.Println(gstrings.IndexOf(str, "", 13))  // => 11
-    fmt.Println(gstrings.IndexOf(str, "", 22))  // => 11
-
-    str = "Blue Whale"
-    fmt.Println(gstrings.IndexOf(str, "Blue"))      // => 0
-    fmt.Println(gstrings.IndexOf(str, "Blute"))     // => -1
-    fmt.Println(gstrings.IndexOf(str, "Whale", 0))  // => 5
-    fmt.Println(gstrings.IndexOf(str, "Whale", 5))  // => 5
-    fmt.Println(gstrings.IndexOf(str, "", -1))      // => 0
-    fmt.Println(gstrings.IndexOf(str, "", 9))       // => 9
-    fmt.Println(gstrings.IndexOf(str, "", 10))      // => 10
-    fmt.Println(gstrings.IndexOf(str, "", 11))      // => 10
-    fmt.Println(gstrings.IndexOf(str, "blue"))      // => -1
-}
+str = "Blue Whale"
+fmt.Println(gstrings.IndexOf(str, "Blue"))      // => 0
+fmt.Println(gstrings.IndexOf(str, "Blute"))     // => -1
+fmt.Println(gstrings.IndexOf(str, "Whale", 0))  // => 5
+fmt.Println(gstrings.IndexOf(str, "Whale", 5))  // => 5
+fmt.Println(gstrings.IndexOf(str, "", -1))      // => 0
+fmt.Println(gstrings.IndexOf(str, "", 9))       // => 9
+fmt.Println(gstrings.IndexOf(str, "", 10))      // => 10
+fmt.Println(gstrings.IndexOf(str, "", 11))      // => 10
+fmt.Println(gstrings.IndexOf(str, "blue"))      // => -1
 ```
 
 
@@ -477,50 +356,30 @@ The **LastIndexOf()** method returns the index within the calling String object 
 Syntax: `LastIndexOf(str, searchStr string, [, fromIndex int]) int`
 
 ```golang
-package main
+str := "canal"
+fmt.Println(gstrings.LastIndexOf(str, "a"))      // => 3
+fmt.Println(gstrings.LastIndexOf(str, "a", 2))   // => 1
+fmt.Println(gstrings.LastIndexOf(str, "a", 0))   // => -1
+fmt.Println(gstrings.LastIndexOf(str, "x"))      // => -1
+fmt.Println(gstrings.LastIndexOf(str, "c", -5))  // => 0
+fmt.Println(gstrings.LastIndexOf(str, "c", 0))   // => 0
+fmt.Println(gstrings.LastIndexOf(str, ""))       // => 5
+fmt.Println(gstrings.LastIndexOf(str, "", 2))    // => 2
 
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-func main() {
-    str := "canal"
-    fmt.Println(gstrings.LastIndexOf(str, "a"))      // => 3
-    fmt.Println(gstrings.LastIndexOf(str, "a", 2))   // => 1
-    fmt.Println(gstrings.LastIndexOf(str, "a", 0))   // => -1
-    fmt.Println(gstrings.LastIndexOf(str, "x"))      // => -1
-    fmt.Println(gstrings.LastIndexOf(str, "c", -5))  // => 0
-    fmt.Println(gstrings.LastIndexOf(str, "c", 0))   // => 0
-    fmt.Println(gstrings.LastIndexOf(str, ""))       // => 5
-    fmt.Println(gstrings.LastIndexOf(str, "", 2))    // => 2
-
-    fmt.Println(gstrings.LastIndexOf("Brave new world", "w"))      // => 10
-    fmt.Println(gstrings.LastIndexOf("Brave new world", "new"))    // => 6
-}
+fmt.Println(gstrings.LastIndexOf("Brave new world", "w"))      // => 10
+fmt.Println(gstrings.LastIndexOf("Brave new world", "new"))    // => 6
 ```
 
 
 
 ## Shuffle
-Shuffle string order.
-
 Syntax: `Shuffle(str string) string`
 
+Shuffle string order：
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/gstrings"
-)
-
-
-func main()  {
-    fmt.Println(gstrings.Shuffle("世界你好 hello world"))  // => 世 rhldwe l好你oo界l
-    fmt.Println(gstrings.Shuffle("123456789"))            // => 648317529
-    fmt.Println(gstrings.Shuffle("abcdefghijk"))          // => hgebfdkcjai
-}
+fmt.Println(gstrings.Shuffle("世界你好 hello world"))  // => 世 rhldwe l好你oo界l
+fmt.Println(gstrings.Shuffle("123456789"))            // => 648317529
+fmt.Println(gstrings.Shuffle("abcdefghijk"))          // => hgebfdkcjai
 ```
 
 
@@ -534,43 +393,24 @@ func main()  {
 ---
 # grandom
 ## Random
-The **Random()** function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1).
-
 Syntax: `Random() float64`
 
+The **Random()** function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1):
+
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/grandom"
-)
-
-func main() {
-    fmt.Println(grandom.Random()) // => 0.9023581008768102
-    fmt.Println(grandom.Random()) // => 0.0903486953039843
-}
+fmt.Println(grandom.Random()) // => 0.9023581008768102
+fmt.Println(grandom.Random()) // => 0.0903486953039843
 ```
 
 
 
 ## RandBool
-Randomly select one from `true` or `false`.
-
 Syntax: `RandBool() bool`.
 
+Randomly select one from `true` or `false`:
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/grandom"
-)
-
-func main() {
-    fmt.Println(grandom.RandBool()) // => false
-    fmt.Println(grandom.RandBool()) // => true
-}
+fmt.Println(grandom.RandBool()) // => false
+fmt.Println(grandom.RandBool()) // => true
 ```
 
 
@@ -578,23 +418,13 @@ func main() {
 ## RandInt
 [https://www.w3schools.com/python/ref_random_randint.asp](https://www.w3schools.com/python/ref_random_randint.asp)
 
-Return a number between `min` and `max` (both included).
-
 Syntax: `RandInt(min, max int) int`.
 
+Return a number between `min` and `max` (both included):
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/grandom"
-)
-
-func main()  {
-    fmt.Println(grandom.RandInt(-1000, 1000))  // => -352
-    fmt.Println(grandom.RandInt(0, 1000))      // => 191
-    fmt.Println(grandom.RandInt(-10000, -10))  // => -1356
-}
+fmt.Println(grandom.RandInt(-1000, 1000))  // => -352
+fmt.Println(grandom.RandInt(0, 1000))      // => 191
+fmt.Println(grandom.RandInt(-10000, -10))  // => -1356
 ```
 
 
@@ -604,23 +434,13 @@ func main()  {
 
 
 ## Shuffle
-Shuffle the list (rearrange the order of the list items).
-
 Syntax: `Shuffle([]string)`
 
+Shuffle the list (rearrange the order of the list items):
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/grandom"
-)
-
-func main()  {
-    l := []string{"a", "b", "c", "d", "e"}
-    grandom.Shuffle(l)
-    fmt.Println(l) // => [b e a c d]
-}
+l := []string{"a", "b", "c", "d", "e"}
+grandom.Shuffle(l)
+fmt.Println(l) // => [b e a c d]
 ```
 
 
@@ -628,18 +448,9 @@ func main()  {
 See [Shuffle](#Shuffle).
 
 ```golang
-package main
-
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/grandom"
-)
-
-func main()  {
-    l := []int{1, 2, 3, 4, 5, 6}
-    grandom.ShuffleInt(l)
-    fmt.Println(l) // => [6 4 2 5 1 3]
-}
+l := []int{1, 2, 3, 4, 5, 6}
+grandom.ShuffleInt(l)
+fmt.Println(l) // => [6 4 2 5 1 3]
 ```
 
 
@@ -647,18 +458,27 @@ func main()  {
 See [Shuffle](#Shuffle).
 
 ```golang
-package main
+l := []interface{}{"a", false, true, 1, "e", 2, nil}
+grandom.ShuffleAny(l)
+fmt.Println(l) // => [<nil> 1 e a false true 2]
+```
 
-import (
-    "fmt"
-    "github.com/xjh22222228/gosh/grandom"
-)
 
-func main()  {
-    l := []interface{}{"a", false, true, 1, "e", 2, nil}
-    grandom.ShuffleAny(l)
-    fmt.Println(l) // => [<nil> 1 e a false true 2]
-}
+
+## Choice
+[https://docs.python.org/zh-cn/3/library/random.html#random.choice](https://docs.python.org/zh-cn/3/library/random.html#random.choice)
+
+`func Choice(str string) string`
+
+Return a random element from a string:
+
+```golang
+str := "GOSH你好世界"
+fmt.Println(grandom.Choice(str)) // => G
+fmt.Println(grandom.Choice(str)) // => S
+fmt.Println(grandom.Choice(str)) // => S
+fmt.Println(grandom.Choice(str)) // => O
+fmt.Println(grandom.Choice(str)) // => 好
 ```
 
 
@@ -668,8 +488,4 @@ func main()  {
 
 
 
-
-
-## LICENSE
-[MIT](./LICENSE)
 
