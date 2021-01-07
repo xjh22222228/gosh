@@ -1,12 +1,14 @@
 package gstrings
 
+import "strings"
+
 func Reverse(str string) string {
 	r := []rune(str)
-	ns := ""
+	var ns strings.Builder
 
 	for idx := range r {
-		ns += string(r[len(r) - idx - 1])
+		ns.WriteRune(r[len(r) - idx - 1])
 	}
 
-	return ns
+	return ns.String()
 }
