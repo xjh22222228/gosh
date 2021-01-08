@@ -2,10 +2,10 @@
   <a href="https://xjh22222228.github.io/gosh">
     <img src="media/logo.svg" width="350">
   </a>
-  <p align="center">Golang utility library, With additional functions such as JavaScript/Python!</p>
+  <p align="center">Golang实用程序库，带有其他功能，例如JavaScript / Python！</p>
   <p align="center">
-    <a href="README_zh-CN.md">
-      <img src="https://img.shields.io/badge/lang-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-red.svg?longCache=true&style=flat-square">
+    <a href="README.md">
+      <img src="https://img.shields.io/badge/lang-English-red.svg?longCache=true&style=flat-square">
     </a>
     <img src="https://img.shields.io/github/go-mod/go-version/xjh22222228/gosh" />
     <img src="https://img.shields.io/github/v/release/xjh22222228/gosh" />
@@ -15,17 +15,17 @@
 <p>
 
 
-## Installation
+## 安装
 ```bash
 go get -d github.com/xjh22222228/gosh
 ```
 
 
-## Documentation
-[Documentation URL](https://xjh22222228.github.io/gosh)
+## 文档
+[文档地址](https://xiejiahe.gitee.io/gosh)
 
 
-## Demo
+## 例子
 ```golang
 package main
 
