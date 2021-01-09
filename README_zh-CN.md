@@ -5,7 +5,7 @@
   <p align="center">Golang实用程序库，带有其他功能，例如JavaScript / Python！</p>
   <p align="center">
     <a href="https://xiejiahe.gitee.io/gosh">
-      <img src="https://img.shields.io/badge/文档-在线-red.svg?longCache=true&style=flat-square">
+      <img src="https://img.shields.io/badge/在线-文档-red.svg?longCache=true&style=flat-square">
     </a>
     <a href="README.md">
       <img src="https://img.shields.io/badge/lang-English-red.svg?longCache=true&style=flat-square">

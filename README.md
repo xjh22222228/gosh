@@ -5,7 +5,7 @@
   <p align="center">Golang utility library, With additional functions such as JavaScript/Python!</p>
   <p align="center">
     <a href="https://xjh22222228.github.io/gosh">
-      <img src="https://img.shields.io/badge/docs-Online-red.svg?longCache=true&style=flat-square">
+      <img src="https://img.shields.io/badge/online-docs-red.svg?longCache=true&style=flat-square">
     </a>
     <a href="README_zh-CN.md">
       <img src="https://img.shields.io/badge/lang-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-red.svg?longCache=true&style=flat-square">
