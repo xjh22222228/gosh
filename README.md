@@ -4,6 +4,9 @@
   </a>
   <p align="center">Golang utility library, With additional functions such as JavaScript/Python!</p>
   <p align="center">
+    <a href="https://xjh22222228.github.io/gosh">
+      <img src="https://img.shields.io/badge/docs-Online-red.svg?longCache=true&style=flat-square">
+    </a>
     <a href="README_zh-CN.md">
       <img src="https://img.shields.io/badge/lang-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-red.svg?longCache=true&style=flat-square">
     </a>
@@ -21,9 +24,6 @@ go get -d github.com/xjh22222228/gosh
 ```
 
 
-## Documentation
-[Documentation URL](https://xjh22222228.github.io/gosh)
-
 
 ## Demo
 ```golang
@@ -32,11 +32,17 @@ package main
 import (
     "fmt"
     "github.com/xjh22222228/gosh/gstrings"
+    "github.com/xjh22222228/gosh/gslice"
 )
 
 func main() {
     s := gstrings.Reverse("Hello World")
     fmt.Println(s) // => dlroW olleH
+
+
+    months := []string{"Jan", "March", "April", "June"}
+    deleteItem := gslice.Splice(&months, 4, 1, "May")
+    fmt.Println(months, deleteItem)  // => [Jan March April June May] []
 }
 ```
 

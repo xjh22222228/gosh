@@ -4,6 +4,9 @@
   </a>
   <p align="center">Golang实用程序库，带有其他功能，例如JavaScript / Python！</p>
   <p align="center">
+    <a href="https://xiejiahe.gitee.io/gosh">
+      <img src="https://img.shields.io/badge/文档-在线-red.svg?longCache=true&style=flat-square">
+    </a>
     <a href="README.md">
       <img src="https://img.shields.io/badge/lang-English-red.svg?longCache=true&style=flat-square">
     </a>
@@ -21,10 +24,6 @@ go get -d github.com/xjh22222228/gosh
 ```
 
 
-## 文档
-[文档地址](https://xiejiahe.gitee.io/gosh)
-
-
 ## 例子
 ```golang
 package main
@@ -37,6 +36,11 @@ import (
 func main() {
     s := gstrings.Reverse("Hello World")
     fmt.Println(s) // => dlroW olleH
+    
+
+    months := []string{"Jan", "March", "April", "June"}
+    deleteItem := gslice.Splice(&months, 4, 1, "May")
+    fmt.Println(months, deleteItem)  // => [Jan March April June May] []
 }
 ```
 

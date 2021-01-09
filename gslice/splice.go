@@ -41,10 +41,10 @@ func Splice(elems *[]string, start, deleteCount int, item ...string) []string {
 		prefixEl := Slice(pElems, 0, start)
 		addEl := Slice(*elems, elLen)
 
-		c := make([]string, elLen + itemLen)
-		copy(c, addEl)
-		copy(c, sub)
-		copy(c, prefixEl)
+		c := make([]string, 0)
+		c = append(c, prefixEl...)
+		c = append(c, addEl...)
+		c = append(c, sub...)
 		*elems = c
 	}
 
