@@ -52,3 +52,10 @@ func TestSplice(t *testing.T) {
 	_assert.Equal("angel,clown", strings.Join(v, ","))
 }
 
+func BenchmarkSplice(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		elems := []string{"angel", "clown", "drum", "mandarin", "sturgeon"}
+		Splice(&elems, 2, 3, "a", "b", "c")
+	}
+}
+

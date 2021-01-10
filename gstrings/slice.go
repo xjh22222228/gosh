@@ -1,3 +1,5 @@
+// Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
+
 package gstrings
 
 func Slice(s string, beginIndex int, endIndex ...int) string {

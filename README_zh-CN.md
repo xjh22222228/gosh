@@ -24,7 +24,7 @@ go get -d github.com/xjh22222228/gosh
 ```
 
 
-## 例子
+## 入门
 ```golang
 package main
 
@@ -44,3 +44,8 @@ func main() {
 }
 ```
 
+可以在运行时[文档中](https://xiejiahe.gitee.io/gosh)找到更多详细信息。
+
+
+## 贡献
+感谢您的帮助！

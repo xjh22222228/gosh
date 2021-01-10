@@ -25,7 +25,7 @@ go get -d github.com/xjh22222228/gosh
 
 
 
-## Demo
+## Getting Started
 ```golang
 package main
 
@@ -46,3 +46,8 @@ func main() {
 }
 ```
 
+More in-depth info can be found in the runtime [documentation](https://xjh22222228.github.io/gosh).
+
+
+## Contributing
+We appreciate your help!

@@ -1,7 +1,6 @@
 package gslice
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"
@@ -22,6 +21,4 @@ func TestFill(t *testing.T) {
 
 	Fill(elems, "6", 0)
 	_assert.Equal("6666", strings.Join(elems, ""))
-
-	fmt.Println(elems)
 }
