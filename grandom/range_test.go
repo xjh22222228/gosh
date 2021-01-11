@@ -11,7 +11,7 @@ func TestRange(t *testing.T) {
 	_assert.Equal(4, len(Range(0, 10, 3)))
 	_assert.Equal(0, len(Range(5, 5)))
 	_assert.Equal(0, len(Range(5, 5, 2)))
-	_assert.Equal(5050, gmath.Sum(Range(0, 100)...))
+	_assert.Equal(5050, gmath.Sum(Range(0, 101)...))
 	_assert.Equal(18, gmath.Sum(Range(0, 10, 3)...))
 }
 
