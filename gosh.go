@@ -2,4 +2,5 @@
 
 package gosh
 
+// Next v0.0.5
 const Version = "v0.0.3"

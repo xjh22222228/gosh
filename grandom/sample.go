@@ -1,10 +1,11 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
+// https://www.w3schools.com/python/ref_random_sample.asp
+// Since: v0.0.3
 
 package grandom
 
 import "log"
 
-// https://www.w3schools.com/python/ref_random_sample.asp
 func Sample(elems []string, k int) []string {
 	if k < 0 || k > len(elems) {
 		log.Panicln("grandom.Sample: Sample larger than population or is" +

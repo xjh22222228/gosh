@@ -1,8 +1,9 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+// Since: v0.0.3
 
 package gslice
 
-// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
 func Fill(elems []string, value string, start int, end ...int) []string {
 	endIdx := len(elems)
 	elLen := len(elems)

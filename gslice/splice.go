@@ -1,4 +1,6 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+// Since: v0.0.3
 
 package gslice
 
@@ -6,7 +8,6 @@ import (
 	"math"
 )
 
-// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 func Splice(elems *[]string, start, deleteCount int, item ...string) []string {
 	pElems := *elems
 	elLen := len(pElems)

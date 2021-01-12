@@ -1,10 +1,11 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
+// Since: v0.0.3
+// https://docs.python.org/zh-cn/3/library/random.html#random.choice
 
 package grandom
 
 import "log"
 
-// https://docs.python.org/zh-cn/3/library/random.html#random.choice
 func Choice(str string) string {
 	if str == "" {
 		return ""

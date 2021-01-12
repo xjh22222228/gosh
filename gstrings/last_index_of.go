@@ -1,4 +1,6 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
+// Since: v0.0.1
 
 package gstrings
 
@@ -6,7 +8,6 @@ import (
 	"strings"
 )
 
-// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
 func LastIndexOf(str, searchStr string, fromIndex ...int) int {
 	fromIdx := len(str)
 

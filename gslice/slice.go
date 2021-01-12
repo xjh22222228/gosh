@@ -1,8 +1,9 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+// Since: v0.0.1
 
 package gslice
 
-// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 func Slice(s []string, beginIndex int, endIndex ...int) []string {
 	endIdx := len(s)
 

@@ -2,6 +2,7 @@
 
 package grandom
 
+// Since: v0.0.3
 func RandBool() bool {
 	randI := Random() * float64(11)
 
