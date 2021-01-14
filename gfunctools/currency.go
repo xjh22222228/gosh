@@ -12,7 +12,7 @@ import (
 func Currency(num float64, symbol ...string) string {
 	currencySymbol := "$"
 
-	if len(symbol) > 0{
+	if len(symbol) > 0 {
 		currencySymbol = symbol[0]
 	}
 
