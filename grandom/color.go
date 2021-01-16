@@ -71,7 +71,7 @@ func Color(mode int) string {
 
 	switch mode {
 		case C_COLOR:
-			r := RandInt(0, len(value))
+			r := RandInt(0, len(value) - 1)
 			sCol.WriteString(value[r])
 			break
 		case C_RGB:
@@ -112,7 +112,7 @@ func Color(mode int) string {
 			sCol.WriteString(strconv.FormatInt(int64(r), 16))
 			sCol.WriteString(strconv.FormatInt(int64(g), 16))
 			sCol.WriteString(strconv.FormatInt(int64(b), 16))
-			sCol.WriteString("000000")
+			sCol.WriteString("000")
 			return sCol.String()[0:7]
 	}
 

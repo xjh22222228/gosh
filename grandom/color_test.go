@@ -1,7 +1,6 @@
 package grandom
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"
@@ -21,8 +20,6 @@ func TestColor(t *testing.T) {
 	// HEX
 	_assert.Equal(7, len(Color(C_HEX)))
 	_assert.True(strings.HasPrefix(Color(C_HEX), "#"))
-
-	fmt.Println(Color(C_HEX))
 }
 
 func BenchmarkColor(b *testing.B) {

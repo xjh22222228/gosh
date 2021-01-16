@@ -4,7 +4,6 @@
 package grandom
 
 import (
-	"log"
 	"math/rand"
 	"time"
 )
@@ -15,7 +14,7 @@ func RandInt(min, max int) int {
 	}
 
 	if min > max {
-		log.Panicf("min(%v) cannot be greater than max(%v)", min, max)
+		return 0
 	}
 
 	rand.Seed(time.Now().UnixNano())
