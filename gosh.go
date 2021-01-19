@@ -2,6 +2,6 @@
 
 package gosh
 
-// Next v0.0.6
-const Version = "v0.0.5"
+// Next v0.0.7
+const Version = "v0.0.6"
 
