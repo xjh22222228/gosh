@@ -11,6 +11,7 @@ func TestIsAscii(t *testing.T) {
 		"\u000F\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001A\u001B\u001C\u001D\u001E\u001F !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
 
 	_assert.True(IsAscii(str))
+	_assert.True(IsAscii(""))
 
 	// 
 	_assert.False(IsAscii("\u0080"))
