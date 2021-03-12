@@ -18,7 +18,8 @@ type Gtime struct {
     Language locale.Language
 }
 
-const regex = `\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS`
+var regex = regexp.MustCompile(
+    `\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS`)
 
 func SetLocale(language locale.Language) *Gtime {
     return &Gtime{
@@ -64,7 +65,6 @@ func Format(t time.Time, format string) string {
 // | A    | AM PM             |  |
 // | a    | am pm             |  |
 func formatTime(t time.Time, format string, language locale.Language) string {
-    r := regexp.MustCompile(regex)
     intl := getLocale(language)
     y, m, d := t.Date()
 
@@ -116,7 +116,7 @@ func formatTime(t time.Time, format string, language locale.Language) string {
         "a": strings.ToLower(a),
     }
 
-    v := r.ReplaceAllStringFunc(format, func(s string) string {
+    v := regex.ReplaceAllStringFunc(format, func(s string) string {
         v, ok := matches[s]
         if !ok {
             return s

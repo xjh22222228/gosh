@@ -54,8 +54,9 @@ func TestFormat(t *testing.T) {
 
 func BenchmarkFormat(b *testing.B) {
     date := time.Date(2021, 3, 21, 21, 5, 5, 0, &time.Location{})
+    zh := SetLocale(locale.ZHCN)
+
     for i := 0; i < b.N; i++ {
-        zh := SetLocale(locale.ZHCN)
         zh.Format(date,
             "YY-YYYY-M-MM-MMM-MMMM-D-DD-d-dd-ddd-dddd-H-HH-h-hh-m-mm-s-ss-A-a")
     }
