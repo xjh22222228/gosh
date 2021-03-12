@@ -20,16 +20,6 @@ type Gtime struct {
 
 const regex = `\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS`
 
-func GetLocale(l locale.Language) *locale.Locale {
-    switch l {
-    case locale.LEN:
-        return locale.EnUS
-    case locale.LZH:
-        return locale.ZhCN
-    }
-    return locale.EnUS
-}
-
 func SetLocale(language locale.Language) *Gtime {
     return &Gtime{
         Language: language,
@@ -45,7 +35,7 @@ func (that Gtime) SetLocale(language locale.Language) *Gtime {
 }
 
 func Format(t time.Time, format string) string {
-    return formatTime(t, format, locale.LEN)
+    return formatTime(t, format, locale.ENUS)
 }
 
 // | Format| Output           | Description              |
@@ -75,7 +65,7 @@ func Format(t time.Time, format string) string {
 // | a    | am pm             |  |
 func formatTime(t time.Time, format string, language locale.Language) string {
     r := regexp.MustCompile(regex)
-    intl := GetLocale(language)
+    intl := getLocale(language)
     y, m, d := t.Date()
 
     year := strconv.Itoa(y)
@@ -135,6 +125,16 @@ func formatTime(t time.Time, format string, language locale.Language) string {
     })
 
     return v
+}
+
+func getLocale(l locale.Language) *locale.Locale {
+    switch l {
+    case locale.ENUS:
+        return locale.EnUS
+    case locale.ZHCN:
+        return locale.ZhCN
+    }
+    return locale.EnUS
 }
 
 func hourTo12(n int) int {

@@ -19,7 +19,7 @@ type Locale struct {
 type Language int
 
 const (
-    LZH Language = 1 + iota
-    LEN
+    ZHCN Language = 1 + iota
+    ENUS
 )
 
