@@ -4,27 +4,34 @@
 
 package gslice
 
+import "math"
+
 func Slice(s []string, beginIndex int, endIndex ...int) []string {
-	endIdx := len(s)
+	sLen := len(s)
+	endIdx := sLen
 
 	if len(endIndex) > 0 {
 		endIdx = endIndex[0]
 	}
 
 	if beginIndex < 0 {
-		beginIndex = len(s) + beginIndex
+		beginIndex = sLen + beginIndex
+
+		if beginIndex < -sLen {
+			beginIndex = int(math.Max(0, float64(beginIndex)))
+		}
 	}
 
-	if beginIndex > len(s) {
-		beginIndex = len(s)
+	if beginIndex > sLen {
+		beginIndex = sLen
 	}
 
 	if endIdx < 0 {
-		endIdx = len(s) + endIdx
+		endIdx = sLen + endIdx
 	}
 
-	if endIdx > len(s) {
-		endIdx = len(s)
+	if endIdx > sLen {
+		endIdx = sLen
 	}
 
 	copyElems := make([]string, endIdx - beginIndex)

@@ -3,27 +3,34 @@
 
 package gstrings
 
+import "math"
+
 func Slice(s string, beginIndex int, endIndex ...int) string {
-	endIdx := len(s)
+	strLen := len(s)
+	endIdx := strLen
 
 	if len(endIndex) > 0 {
 		endIdx = endIndex[0]
 	}
 
 	if beginIndex < 0 {
-		beginIndex = len(s) + beginIndex
+		beginIndex = strLen + beginIndex
+
+		if beginIndex < -strLen {
+			beginIndex = int(math.Max(0, float64(beginIndex)))
+		}
 	}
 
-	if beginIndex > len(s) {
-		beginIndex = len(s)
+	if beginIndex > strLen {
+		beginIndex = strLen
 	}
 
 	if endIdx < 0 {
-		endIdx = len(s) + endIdx
+		endIdx = strLen + endIdx
 	}
 
-	if endIdx > len(s) {
-		endIdx = len(s)
+	if endIdx > strLen {
+		endIdx = strLen
 	}
 
 	return s[beginIndex: endIdx]

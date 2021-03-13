@@ -18,4 +18,10 @@ func TestSlice(t *testing.T) {
 	_assert.Equal("us.", Slice(str, -3))
 	_assert.Equal("us", Slice(str, -3, -1))
 	_assert.Equal("The morning is upon us", Slice(str, 0, -1))
+
+	// None
+	_assert.Equal("", Slice("", -3))
+	_assert.Equal("1", Slice("1", -3))
+	_assert.Equal("111", Slice("111", -3))
+	_assert.Equal("111", Slice("1111", -3))
 }

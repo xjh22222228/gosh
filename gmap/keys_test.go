@@ -19,3 +19,17 @@ func TestKeys(t *testing.T) {
 
     _assert.Equal(5, len(v))
 }
+
+func BenchmarkKeys(b *testing.B) {
+    m := map[string]string{
+        "g": "",
+        "o": "",
+        "s": "",
+        "h": "",
+        "!": "",
+    }
+
+    for i := 0; i < b.N; i++ {
+        Keys(m)
+    }
+}

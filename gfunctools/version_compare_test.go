@@ -16,3 +16,9 @@ func TestVersionCompare(t *testing.T) {
 	_assert.Equal(1, VersionCompare("V1.0.2", "0.0.2"))
 	_assert.Equal(1, VersionCompare("V1", "0.0.2"))
 }
+
+func BenchmarkVersionCompare(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		VersionCompare("V1", "0.0.2")
+	}
+}

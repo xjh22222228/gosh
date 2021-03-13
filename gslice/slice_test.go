@@ -22,5 +22,10 @@ func TestSlice(t *testing.T) {
 	citrus[0] = "copy"
 	// Shallow copy
 	_assert.Equal("Banana,Orange,Lemon,Apple,Mango", strings.Join(fruits, ","))
+
+	_assert.Equal("1",
+		strings.Join(Slice([]string{"1"},
+		-3),
+		","))
 }
 
