@@ -46,7 +46,7 @@ func main() {
     deleteItem := gslice.Splice(&months, 4, 1, "May")
     fmt.Println(months, deleteItem)  // => [Jan March April June May] []
     
-    // form time
+    // Format date
     fmt.Println(gtime.Format(time.Now(), "YYYY-MM-DD HH:mm:ss"))
     // => 2021-03-12 21:25:37
 }

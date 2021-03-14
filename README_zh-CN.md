@@ -30,7 +30,10 @@ package main
 
 import (
     "fmt"
+    "time"
     "github.com/xjh22222228/gosh/gstrings"
+    "github.com/xjh22222228/gosh/gslice"
+    "github.com/xjh22222228/gosh/gtime"
 )
 
 func main() {
@@ -41,6 +44,10 @@ func main() {
     months := []string{"Jan", "March", "April", "June"}
     deleteItem := gslice.Splice(&months, 4, 1, "May")
     fmt.Println(months, deleteItem)  // => [Jan March April June May] []
+    
+    // 格式化日期
+    fmt.Println(gtime.Format(time.Now(), "YYYY-MM-DD HH:mm:ss"))
+    // => 2021-03-12 21:25:37
 }
 ```
 
