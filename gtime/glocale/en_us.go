@@ -1,9 +1,9 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
 // English(US)
 
-package locale
+package glocale
 
-var EnUS = &Locale{
+var IntlLocaleEnUS = &Locale{
     Weekdays: [7]string{
         "Sunday", "Monday", "Tuesday",
         "Wednesday", "Thursday", "Friday",
@@ -25,7 +25,7 @@ var EnUS = &Locale{
         "July", "August", "September",
         "October", "November", "December",
     },
-    ShortMonths: [12]string{
+    MonthsShort: [12]string{
         "Jan", "Feb", "Mar",
         "Apr", "May", "Jun",
         "Jul", "Aug", "Sept",

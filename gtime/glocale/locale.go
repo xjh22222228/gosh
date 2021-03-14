@@ -1,4 +1,4 @@
-package locale
+package glocale
 
 type Locale struct {
     // 星期一|星期二...
@@ -10,7 +10,7 @@ type Locale struct {
     // 一月|二月...
     Months [12]string
     // 1月|2月...
-    ShortMonths [12]string
+    MonthsShort [12]string
 
     // 上午|下午...
     GetTime func(hour int, minute int) string
@@ -28,13 +28,13 @@ const (
 func GetLocale(l Language) *Locale {
     switch l {
     case ENUS:
-        return EnUS
+        return IntlLocaleEnUS
     case ZHCN:
-        return ZhCN
+        return IntlLocaleZhCN
     case ZHHK:
-        return ZhHK
+        return IntlLocaleEnHK
     case ZHTW:
-        return ZhTW
+        return IntlLocaleEnTW
     }
-    return EnUS
+    return IntlLocaleEnUS
 }

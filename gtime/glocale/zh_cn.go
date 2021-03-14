@@ -1,9 +1,9 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
 // 中国-大陆
 
-package locale
+package glocale
 
-var ZhCN = &Locale{
+var IntlLocaleZhCN = &Locale{
     // 常规星期
     Weekdays: [7]string{
         "星期日", "星期一", "星期二",
@@ -30,7 +30,7 @@ var ZhCN = &Locale{
         "十月", "十一月", "十二月",
     },
     // 简写月份
-    ShortMonths: [12]string{
+    MonthsShort: [12]string{
         "1月", "2月", "3月",
         "4月", "5月", "6月",
         "7月", "8有", "9月",
