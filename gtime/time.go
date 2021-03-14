@@ -108,7 +108,7 @@ func Format(t time.Time, format string) string {
 // | A    | AM PM             |  |
 // | a    | am pm             |  |
 func formatTime(t time.Time, format string, language locale.Language) string {
-    intl := getLocale(language)
+    intl := locale.GetLocale(language)
     y, m, d := t.Date()
     hour, minute, sec := t.Clock()
     
@@ -173,16 +173,6 @@ func formatTime(t time.Time, format string, language locale.Language) string {
     })
 
     return v
-}
-
-func getLocale(l locale.Language) *locale.Locale {
-    switch l {
-    case locale.ENUS:
-        return locale.EnUS
-    case locale.ZHCN:
-        return locale.ZhCN
-    }
-    return locale.EnUS
 }
 
 func hourTo12(n int) int {

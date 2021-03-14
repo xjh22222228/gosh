@@ -1,30 +1,35 @@
 // Copyright 2020-2021 the Gosh authors. All rights reserved. MIT license.
-// 中文
+// 中国-大陆
 
 package locale
 
 var ZhCN = &Locale{
+    // 常规星期
     Weekdays: [7]string{
         "星期日", "星期一", "星期二",
         "星期三", "星期四", "星期五",
         "星期六",
     },
+    // 最简写星期
     WeekdaysMin: [7]string{
         "日", "一", "二",
         "三", "四", "五",
         "六",
     },
+    // 简写星期
     WeekdaysShort: [7]string{
         "周日", "周一", "周二",
         "周三", "周四", "周五",
         "周六",
     },
+    // 常规月份
     Months: [12]string{
         "一月", "二月", "三月",
         "四月", "五月", "六月",
         "七月", "八月", "九月",
         "十月", "十一月", "十二月",
     },
+    // 简写月份
     ShortMonths: [12]string{
         "1月", "2月", "3月",
         "4月", "5月", "6月",
@@ -32,6 +37,7 @@ var ZhCN = &Locale{
         "10月", "11月", "12月",
     },
 
+    // 24小时时辰，只有中国大陆显示，其他语言默认采用 AM-PM
     GetTime: func(hour int, minute int) string {
         hm := hour * 100 + minute
 

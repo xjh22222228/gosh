@@ -20,6 +20,21 @@ type Language int
 
 const (
     ZHCN Language = 1 + iota
+    ZHHK
+    ZHTW
     ENUS
 )
 
+func GetLocale(l Language) *Locale {
+    switch l {
+    case ENUS:
+        return EnUS
+    case ZHCN:
+        return ZhCN
+    case ZHHK:
+        return ZhHK
+    case ZHTW:
+        return ZhTW
+    }
+    return EnUS
+}
