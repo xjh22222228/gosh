@@ -66,3 +66,9 @@ func ToISOString(t time.Time) string {
     return Format(u, "YYYY-MM-DDTHH:mm:ss.sssZ")
 }
 
+func IsToday(t time.Time) bool {
+    ny, nm, nd := time.Now().Date()
+    y, m, d := t.Date()
+    return ny == y && nm == m && nd == d
+}
+

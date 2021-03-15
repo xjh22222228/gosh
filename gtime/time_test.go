@@ -140,7 +140,6 @@ func TestToISOString(t *testing.T) {
     _assert.True(
         strings.Contains(ToISOString(date), "2021-03-21T21:05:05."),
         )
-
 }
 
 func BenchmarkFormat(b *testing.B) {
