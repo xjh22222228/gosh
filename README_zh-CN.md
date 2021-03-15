@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://xjh22222228.github.io/gosh">
+  <a href="https://gosh.vercel.app/">
     <img src="media/logo.svg" width="350">
   </a>
   <p align="center">Golang实用程序库，带有其他功能，例如JavaScript / Python！</p>
   <p align="center">
-    <a href="https://xiejiahe.gitee.io/gosh">
+    <a href="https://gosh.vercel.app/">
       <img src="https://img.shields.io/badge/在线-文档-red.svg?longCache=true&style=flat-square">
     </a>
     <a href="README.md">
@@ -51,7 +51,7 @@ func main() {
 }
 ```
 
-可以在运行时[文档中](https://xiejiahe.gitee.io/gosh)找到更多详细信息。
+可以在运行时[文档中](https://gosh.vercel.app/)找到更多详细信息。
 
 
 ## 贡献

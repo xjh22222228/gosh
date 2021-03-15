@@ -2,7 +2,7 @@ module.exports = {
   title: 'GOSH',
   tagline: '👌 Golang utility library, With additional functions such as JavaScript/Python!',
   url: 'https://github.com/xjh22222228/gosh',
-  baseUrl: '/gosh/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.svg',
