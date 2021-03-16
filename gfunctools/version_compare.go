@@ -4,7 +4,7 @@
 package gfunctools
 
 import (
-	"github.com/xjh22222228/gosh/gstrings"
+	"github.com/xjh22222228/gosh/gstr"
 	"math"
 	"strconv"
 	"strings"
@@ -12,10 +12,10 @@ import (
 
 // Since: v0.0.5
 func VersionCompare(v1, v2 string) int {
-	v1 = gstrings.RemovePrefix(v1, "v")
-	v1 = gstrings.RemovePrefix(v1, "V")
-	v2 = gstrings.RemovePrefix(v2, "v")
-	v2 = gstrings.RemovePrefix(v2, "V")
+	v1 = gstr.RemovePrefix(v1, "v")
+	v1 = gstr.RemovePrefix(v1, "V")
+	v2 = gstr.RemovePrefix(v2, "v")
+	v2 = gstr.RemovePrefix(v2, "V")
 
 	version1 := strings.Split(v1, ".")
 	version2 := strings.Split(v2, ".")

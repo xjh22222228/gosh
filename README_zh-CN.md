@@ -31,13 +31,13 @@ package main
 import (
     "fmt"
     "time"
-    "github.com/xjh22222228/gosh/gstrings"
+    "github.com/xjh22222228/gosh/gstr"
     "github.com/xjh22222228/gosh/gslice"
     "github.com/xjh22222228/gosh/gtime"
 )
 
 func main() {
-    s := gstrings.Reverse("Hello World")
+    s := gstr.Reverse("Hello World")
     fmt.Println(s) // => dlroW olleH
     
 

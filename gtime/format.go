@@ -2,7 +2,7 @@ package gtime
 
 import (
     "github.com/xjh22222228/gosh/ginternal"
-    "github.com/xjh22222228/gosh/gstrings"
+    "github.com/xjh22222228/gosh/gstr"
     "github.com/xjh22222228/gosh/gtime/glocale"
     "regexp"
     "strconv"
@@ -20,7 +20,7 @@ const (
 var regex = regexp.MustCompile(
     `\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,3}|Z{1,2}`)
 
-func (that Gtime) Format(t time.Time, format string) string {
+func (that Time) Format(t time.Time, format string) string {
     return formatTime(t, format, that.Language)
 }
 
@@ -85,7 +85,7 @@ func formatTime(t time.Time, format string, language glocale.Language) string {
     }
 
     matches := map[string]string{
-        "YY":   gstrings.Slice(year, -2),
+        "YY":   gstr.Slice(year, -2),
         "YYYY": year,
         "M":    monthStr,
         "MM":   ginternal.AddZero(monthStr),
@@ -105,7 +105,7 @@ func formatTime(t time.Time, format string, language glocale.Language) string {
         "mm":   ginternal.AddZero(minuteStr),
         "s":    second,
         "ss":   ginternal.AddZero(second),
-        "sss":  gstrings.Slice(unixStr, -3),
+        "sss":  gstr.Slice(unixStr, -3),
         "A":    a,
         "a":    strings.ToLower(a),
     }

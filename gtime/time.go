@@ -8,18 +8,18 @@ import (
     "time"
 )
 
-type Gtime struct {
+type Time struct {
     // locale name
     Language glocale.Language
 }
 
-func SetLocale(language glocale.Language) *Gtime {
-    return &Gtime{
+func SetLocale(language glocale.Language) *Time {
+    return &Time{
         Language: language,
     }
 }
 
-func (that Gtime) SetLocale(language glocale.Language) *Gtime {
+func (that Time) SetLocale(language glocale.Language) *Time {
     return SetLocale(language)
 }
 

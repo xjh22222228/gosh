@@ -5,7 +5,7 @@ package gfunctools
 
 import (
 	"fmt"
-	"github.com/xjh22222228/gosh/gstrings"
+	"github.com/xjh22222228/gosh/gstr"
 	"strings"
 )
 
@@ -17,8 +17,8 @@ func Currency(num float64, symbol ...string) string {
 	}
 
 	toFixed := fmt.Sprintf("%.2f", num)
-	floatN := gstrings.Slice(toFixed, -3)
-	numPrefix := gstrings.Slice(toFixed, 0, -3)
+	floatN := gstr.Slice(toFixed, -3)
+	numPrefix := gstr.Slice(toFixed, 0, -3)
 	length := len(numPrefix)
 	var str strings.Builder
 
@@ -31,5 +31,5 @@ func Currency(num float64, symbol ...string) string {
 
 	str.WriteString(currencySymbol)
 
-	return gstrings.Reverse(str.String()) + floatN
+	return gstr.Reverse(str.String()) + floatN
 }

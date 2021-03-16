@@ -1,32 +1,33 @@
 module.exports = {
   someSidebar: {
     'Getting Started': ['started'],
-    Gstrings: [
-      'gstrings/Reverse', 'gstrings/StartsWith', 'gstrings/EndsWith',
-      'gstrings/Concat', 'gstrings/Slice', 'gstrings/Search',
-      'gstrings/Includes', 'gstrings/Trim', 'gstrings/TrimStart',
-      'gstrings/TrimEnd', 'gstrings/Center', 'gstrings/PadStart',
-      'gstrings/PadEnd', 'gstrings/IndexOf', 'gstrings/LastIndexOf',
-      'gstrings/Shuffle', 'gstrings/IsAscii', 'gstrings/RemovePrefix',
-      'gstrings/RemoveSuffix', 'gstrings/LowerFirst', 'gstrings/UpperFirst',
-      'gstrings/Capitalize'
+
+    gstr: [
+      'gstr/Reverse', 'gstr/StartsWith', 'gstr/EndsWith',
+      'gstr/Concat', 'gstr/Slice', 'gstr/Search',
+      'gstr/Includes', 'gstr/Trim', 'gstr/TrimStart',
+      'gstr/TrimEnd', 'gstr/Center', 'gstr/PadStart',
+      'gstr/PadEnd', 'gstr/IndexOf', 'gstr/LastIndexOf',
+      'gstr/Shuffle', 'gstr/IsAscii', 'gstr/RemovePrefix',
+      'gstr/RemoveSuffix', 'gstr/LowerFirst', 'gstr/UpperFirst',
+      'gstr/Capitalize'
     ],
-    Grandom: [
-      'grandom/Random', 'grandom/RandBool', 'grandom/RandInt',
-      'grandom/Shuffle', 'grandom/Choice', 'grandom/Range',
-      'grandom/Color',
+    grand: [
+      'grand/Random', 'grand/RandBool', 'grand/RandInt',
+      'grand/Shuffle', 'grand/Choice', 'grand/Range',
+      'grand/Color',
     ],
-    Gslice: [
+    gslice: [
       'gslice/Slice', 'gslice/Splice', 'gslice/Fill'
     ],
-    Gmath: [
+    gmath: [
       'gmath/Max', 'gmath/Min', 'gmath/InRange',
       'gmath/Sum', 'gmath/Round', 'gmath/Clamp'
     ],
-    Gfunctools: [
+    gfunctools: [
       'gfunctools/VersionCompare', 'gfunctools/Currency'
     ],
-    Gtime: [
+    gtime: [
       'gtime/Format', 'gtime/DaysInMonth', 'gtime/DaysInYear',
       'gtime/IsLeapYear', 'gtime/IsToday'
     ],
