@@ -1,0 +1,11 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <rect fill="transparent" id="canvas_background" height="102" width="102" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <text stroke="#000" transform="matrix(1.048827052116394,0,0,1.048827052116394,-0.4409693144261837,-5.908073306083679) " font-style="normal" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="122" id="svg_1" y="97.16567" x="7.138653" stroke-width="0" fill="#a47445">G</text>
+ </g>
+</svg>
