@@ -59,7 +59,7 @@ function Home({ history }) {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
   
-  return <Redirect to="/gosh/docs" />;
+  return <Redirect to="/docs" />;
 
   return (
     <Layout
