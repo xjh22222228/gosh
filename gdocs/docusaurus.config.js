@@ -43,12 +43,8 @@ module.exports = {
               href: 'https://github.com/xjh22222228/tomato-work',
             },
             {
-              label: 'Git Manual',
-              href: 'https://github.com/xjh22222228/git-manual',
-            },
-            {
-              label: 'Linux Manual',
-              href: 'https://github.com/xjh22222228/linux-manual',
+              label: 'Bed',
+              href: 'https://github.com/xjh22222228/bed',
             },
             {
               label: 'v-drag-move',
