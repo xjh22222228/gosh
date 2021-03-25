@@ -43,8 +43,8 @@ module.exports = {
               href: 'https://github.com/xjh22222228/tomato-work',
             },
             {
-              label: 'Battle',
-              href: 'https://github.com/xjh22222228/battle',
+              label: 'Bo💣mb',
+              href: 'https://github.com/xjh22222228/boomb',
             },
             {
               label: 'v-drag-move',
