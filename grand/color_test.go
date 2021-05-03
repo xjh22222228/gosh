@@ -1,6 +1,7 @@
 package grand
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"regexp"
 	"testing"
@@ -10,15 +11,19 @@ func TestColor(t *testing.T) {
 	_assert := assert.New(t)
 
 	// RGB
+	rgb := Color(ColorRGB)
 	matchRgb, _ := regexp.MatchString(
 		`rgb\(\d{1,3},\d{1,3},\d{1,3}\)`,
-		Color(ColorRGB))
+		rgb)
+	fmt.Println(rgb)
 	_assert.True(matchRgb)
 
 	// RGBA
+	rgba := Color(ColorRGBA)
 	matchRgba, _ := regexp.MatchString(
 		`rgba\(\d{1,3},\d{1,3},\d{1,3},(1|0\.\d{1,2})\)`,
-		Color(ColorRGBA))
+		rgba)
+	fmt.Println(rgba)
 	_assert.True(matchRgba)
 
 	// HEX
