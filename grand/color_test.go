@@ -21,7 +21,7 @@ func TestColor(t *testing.T) {
 	// RGBA
 	rgba := Color(ColorRGBA)
 	matchRgba, _ := regexp.MatchString(
-		`rgba\(\d{1,3},\d{1,3},\d{1,3},(1|0\.\d{1,2})\)`,
+		`rgba\(\d{1,3},\d{1,3},\d{1,3},[1|0]\.\d{1,2}\)`,
 		rgba)
 	fmt.Println(rgba)
 	_assert.True(matchRgba)
@@ -40,7 +40,7 @@ func TestColor(t *testing.T) {
 
 	// HSLA
 	matchHsla, _ := regexp.MatchString(
-		`hsla\(\d{1,3},\d{1,3}%,\d{1,3}%,(1|0\.\d{1,2})\)`,
+		`hsla\(\d{1,3},\d{1,3}%,\d{1,3}%,[1|0]\.\d{1,2}\)`,
 		Color(ColorHSLA))
 	_assert.True(matchHsla)
 }
