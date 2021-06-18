@@ -15,5 +15,4 @@ jobs:
       uses: cedrickring/golang-action/go1.15@1.6.0
     - name: Run Test
       run: |
-        go mod tidy -v
         go test -bench=. -benchmem -race --cover -v ./...
