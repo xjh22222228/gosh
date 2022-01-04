@@ -46,10 +46,6 @@ module.exports = {
               label: 'Bo💣mb',
               href: 'https://github.com/xjh22222228/boomb',
             },
-            {
-              label: 'v-drag-move',
-              href: 'https://github.com/xjh22222228/v-drag-move',
-            },
           ],
         },
         {
@@ -79,7 +75,7 @@ module.exports = {
           ],
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} GOSH, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © 2021-${new Date().getFullYear()} GOSH, Inc. Built with Docusaurus.`,
     },
   },
   presets: [

@@ -10,6 +10,6 @@ title: IsToday
 IsToday adds .IsToday() API to indicates whether the Time object is today or not.
 :
 ```js
-gtime.IsToday(2020) // true
+gtime.IsToday(time.Now()) // true
 ```
 
