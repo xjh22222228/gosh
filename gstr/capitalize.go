@@ -3,16 +3,19 @@
 
 package gstr
 
-import "strings"
+import (
+	"strings"
+)
 
-func Capitalize(str string) string {
-	sLen := len(str)
+func Capitalize[T string | []byte](str T) string {
+	s := string(str)
+	sLen := len(s)
 
 	if sLen == 0 {
-		return str
+		return s
 	}
 
-	sFirst := strings.ToUpper(string(str[0]))
-
-	return sFirst + strings.ToLower(str[1:])
+	r := []rune(s)
+	sFirst := strings.ToUpper(string(r[0]))
+	return sFirst + strings.ToLower(string(r[1:]))
 }

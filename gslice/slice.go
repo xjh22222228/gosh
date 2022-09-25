@@ -6,7 +6,7 @@ package gslice
 
 import "math"
 
-func Slice(s []string, beginIndex int, endIndex ...int) []string {
+func Slice[T any](s []T, beginIndex int, endIndex ...int) []T {
 	sLen := len(s)
 	endIdx := sLen
 
@@ -34,7 +34,7 @@ func Slice(s []string, beginIndex int, endIndex ...int) []string {
 		endIdx = sLen
 	}
 
-	copyElems := make([]string, endIdx - beginIndex)
-	copy(copyElems, s[beginIndex: endIdx])
+	copyElems := make([]T, endIdx-beginIndex)
+	copy(copyElems, s[beginIndex:endIdx])
 	return copyElems
 }

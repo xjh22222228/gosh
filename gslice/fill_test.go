@@ -21,4 +21,8 @@ func TestFill(t *testing.T) {
 
 	Fill(elems, "6", 0)
 	_assert.Equal("6666", strings.Join(elems, ""))
+
+	elemInt := []int{1, 2, 3, 4}
+	Fill(elemInt, 5, 1)
+	_assert.Equal(5, elemInt[1])
 }

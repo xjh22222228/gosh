@@ -8,7 +8,8 @@ import (
 	"math"
 )
 
-func Splice(elems *[]string, start, deleteCount int, item ...string) []string {
+func Splice[T any](elems *[]T, start, deleteCount int,
+	item ...T) []T {
 	pElems := *elems
 	elLen := len(pElems)
 	itemLen := len(item)
@@ -30,7 +31,7 @@ func Splice(elems *[]string, start, deleteCount int, item ...string) []string {
 		deleteCount = start
 	}
 
-	if deleteCount > elLen - start {
+	if deleteCount > elLen-start {
 		deleteCount = elLen - start
 	}
 
@@ -38,13 +39,13 @@ func Splice(elems *[]string, start, deleteCount int, item ...string) []string {
 	if itemLen > 0 {
 		*elems = append(
 			pElems,
-			item...
+			item...,
 		)
 		sub := Slice(pElems, start, elLen)
 		prefixEl := Slice(pElems, 0, start)
 		addEl := Slice(*elems, elLen)
 
-		c := make([]string, 0)
+		c := make([]T, 0)
 		c = append(c, prefixEl...)
 		c = append(c, addEl...)
 		c = append(c, sub...)
@@ -60,11 +61,11 @@ func Splice(elems *[]string, start, deleteCount int, item ...string) []string {
 			elLen += itemLen
 		}
 		// Shallow copy
-		deleteItem := make([]string, deleteCount)
-		copy(deleteItem, (*elems)[start: endIdx])
-		*elems = append((*elems)[0: start], (*elems)[endIdx: elLen]...)
+		deleteItem := make([]T, deleteCount)
+		copy(deleteItem, (*elems)[start:endIdx])
+		*elems = append((*elems)[0:start], (*elems)[endIdx:elLen]...)
 		return deleteItem
 	}
 
-	return []string{}
+	return []T{}
 }
