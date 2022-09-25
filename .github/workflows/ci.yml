@@ -12,7 +12,9 @@ jobs:
       with:
         persist-credentials: false
     - name: Use Go 1.18
-      uses: cedrickring/golang-action/go1.18@1.6.0
+      uses: actions/setup-go@v3
+      with:
+        go-version: '1.19.1'
     - name: Run Test
       run: |
         go test -bench=. -benchmem -race --cover -v ./...
